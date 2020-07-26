@@ -1,0 +1,2 @@
+class TrickCourse < ApplicationRecord
+end

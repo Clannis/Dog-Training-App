@@ -9,9 +9,13 @@ ___
 ### Attributes
 - username
 - password
-- name
+- first name
+- last name
 - phone number
 - email 
+### methods
+- name
+    - returns first and last name
 
 ## Dog
 ___
@@ -49,12 +53,16 @@ ___
 - belongs to dog
 - belongs to course
 ### Attributes
-- date
-- time
+- datetime
 - location 
 - trainer id
 - dog id
 - course id
+### methods
+- date
+    - returns readable date
+- time
+    - returns readable time
 
 ## Trainer
 ___
@@ -65,11 +73,15 @@ ___
 ### Attributes
 - username
 - password
-- name
+- first name
+- last name
 - phone number
 - email
-- certifications
+- certification
 - image path
+### methods
+- name
+    - returns first and last name
 
 ## Trick
 ___
@@ -85,5 +97,5 @@ ___
 - belongs to course
 - belongs to trick
 ### Attributes
-- name
 - course id
+- trick id
