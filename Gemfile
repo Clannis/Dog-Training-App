@@ -51,3 +51,5 @@ gem "omniauth", "~> 1.9"
 gem "omniauth-facebook", "~> 6.0"
 
 gem "omniauth-google", "~> 1.0"
+
+gem "dotenv-rails", "~> 2.7"
