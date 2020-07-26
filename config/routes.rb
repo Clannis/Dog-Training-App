@@ -5,5 +5,7 @@ Rails.application.routes.draw do
   resources :courses
   resources :dogs
   resources :users
+  match '/auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
+  root 'welcome#home'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
