@@ -4,7 +4,7 @@
 ___
 ### Relationships
 - has_many dogs
-- has many training sessions
+- has many training sessions, through dogs
 - has many courses, through training sessions
 ### Attributes
 - username
@@ -17,7 +17,7 @@ ___
 ___
 ### Relationships
 - belongs to user
-- has many training sessions, through user
+- has many training sessions
 - has many trainers, through training sessions
 - has many courses, through training sessions
 ### Attributes
@@ -27,13 +27,14 @@ ___
 - shots
 - date of last shot 
 - image path
+- user id
 
 ## Course
 ___
 ### Relationships
 - has many training sessions
-- has many users, through training session
-- has many dogs, through user
+- has many dogs, through training session
+- has many users, through dog
 ### Attributes
 - name
 - length of course
@@ -45,12 +46,15 @@ ___
 ___
 ### Relationships
 - belongs to trainer
-- belongs to user
+- belongs to dog
 - belongs to course
 ### Attributes
 - date
 - time
 - location 
+- trainer id
+- dog id
+- course id
 
 ## Trainer
 ___
