@@ -32,13 +32,13 @@ ___
 ## Course
 ___
 ### Relationships
+- has many tricks
 - has many training sessions
 - has many dogs, through training session
 - has many users, through dog
 ### Attributes
 - name
 - length of course
-- tricks
 - cost 
 
 
@@ -70,3 +70,20 @@ ___
 - email
 - certifications
 - image path
+
+## Trick
+___
+### Relationships
+- has many courses
+### Attributes
+- name
+- difficulty_rating
+
+## Trick_Course (Join Table)
+___
+### Relationships
+- belongs to course
+- belongs to trick
+### Attributes
+- name
+- course id
