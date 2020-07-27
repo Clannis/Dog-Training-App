@@ -10,7 +10,65 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_26_150914) do
+ActiveRecord::Schema.define(version: 2020_07_26_161246) do
+
+  create_table "courses", force: :cascade do |t|
+    t.string "name"
+    t.integer "length"
+    t.integer "cost"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "dogs", force: :cascade do |t|
+    t.string "name"
+    t.string "breed"
+    t.integer "age"
+    t.boolean "shots"
+    t.datetime "last_shot_date"
+    t.string "image_path"
+    t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "trainers", force: :cascade do |t|
+    t.string "username"
+    t.string "password_digest"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "phone_number"
+    t.string "email"
+    t.string "certification"
+    t.string "image_path"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "training_sessions", force: :cascade do |t|
+    t.datetime "datetime"
+    t.string "location"
+    t.integer "trainer_id"
+    t.integer "dog_id"
+    t.integer "course_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "trick_courses", force: :cascade do |t|
+    t.integer "course_id"
+    t.integer "trick_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "tricks", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.integer "difficulty_rating"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "username"
