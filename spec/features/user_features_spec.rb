@@ -23,6 +23,16 @@ describe 'Feature Test: Before Log In', type: :feature do
         end
 
     end
+
+    describe "Login Page" do
+
+        it "has forms for user and trainer logins" do
+            visit '/signin'
+            expect(page).to have_link("Log In as Owner")
+            expect(page).to have_link("Log In as Trainer")
+        end
+
+    end
 end
 
 describe 'Feature Test: User Signup', :type => :feature do
