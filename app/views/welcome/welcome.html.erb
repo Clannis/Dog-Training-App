@@ -1,0 +1,11 @@
+<h1>Welcome to [Dog Training Comapny Name]</h1>
+<h3>Login</h3>
+<div class="login-box">
+<%= link_to "Log In with Credentials", login_path %>
+<%= link_to image_tag("/images/facebook-logo.png", border: 0) + " Log In with Facebook", 'auth/facebook', class: "facebook" %>
+<%= link_to image_tag("/images/google-logo.png", border: 0) + " Log In with Google", 'auth/google', class: "google" %>
+</div>
+<h3>Signup</h3>
+<div class="login-box">
+<%= link_to "Sign Up", signup_path %>
+</div>
