@@ -36,10 +36,9 @@ describe 'Feature Test: User Signup', :type => :feature do
         user_signup
         expect(current_path).to eq('/users/1')
         expect(page).to have_content("Amy Poehler")
-        expect(page).to have_content("Mood")
-        expect(page).to have_content("happy")
-        expect(page).to have_content("15")
-        expect(page).to have_content("58")
+        expect(page).to have_content("555-555-5555")
+        expect(page).to have_content("AP@test.com")
+        expect(page).to have_content("AP_Dog")
     end
 
     it "on sign up, successfully adds a session hash" do
@@ -57,11 +56,10 @@ describe 'Feature Test: User Signup', :type => :feature do
         expect(current_path).to eq('/signin')
         user_login
         expect(current_path).to eq('/users/1')
-        expect(page).to have_content("Mindy")
-        expect(page).to have_content("Mood")
-        expect(page).to have_content("happy")
-        expect(page).to have_content("10")
-        expect(page).to have_content("50")
+        expect(page).to have_content("Amy Poehler")
+        expect(page).to have_content("555-555-5555")
+        expect(page).to have_content("AP@test.com")
+        expect(page).to have_content("AP_Dog")
     end
 
     it "on log in, successfully adds a session hash" do
@@ -80,17 +78,17 @@ describe 'Feature Test: User Signup', :type => :feature do
     end
 
     it 'successfully signs up as admin' do
-        visit '/users/new'
-        expect(current_path).to eq('/users/new')
+        visit '/trainers/new'
+        expect(current_path).to eq('/trainers/new')
         # admin_signup method is defined in login_helper.rb
         admin_signup
-        expect(current_path).to eq('/users/1')
+        expect(current_path).to eq('/trainers/1')
         expect(page).to have_content("Walt Disney")
-        expect(page).to have_content("ADMIN")
+        expect(page).to have_content("TRAINER")
     end
 
     it "on sign up for admin, successfully adds a session hash" do
-        visit '/users/new'
+        visit '/trainers/new'
         # admin_signup method is defined in login_helper.rb
         admin_signup
         expect(page.get_rack_session_key('user_id')).to_not be_nil
