@@ -74,6 +74,7 @@ GEM
       xpath (~> 3.2)
     concurrent-ruby (1.1.6)
     crass (1.0.6)
+    database_cleaner (1.8.5)
     diff-lcs (1.4.4)
     dotenv (2.7.6)
     dotenv-rails (2.7.6)
@@ -143,6 +144,9 @@ GEM
       rack
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
+    rack_session_access (0.2.0)
+      builder (>= 2.0.0)
+      rack (>= 1.0.0)
     rails (6.0.3.2)
       actioncable (= 6.0.3.2)
       actionmailbox (= 6.0.3.2)
@@ -245,6 +249,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.2)
   byebug
   capybara (~> 3.33)
+  database_cleaner
   dotenv-rails (~> 2.7)
   jbuilder (~> 2.7)
   listen (~> 3.2)
@@ -252,6 +257,7 @@ DEPENDENCIES
   omniauth-facebook (~> 6.0)
   omniauth-google (~> 1.0)
   puma (~> 4.1)
+  rack_session_access
   rails (~> 6.0.3, >= 6.0.3.2)
   rspec-rails
   sass-rails (>= 6)
