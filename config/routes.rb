@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :training_session_dogs
   resources :tricks
   resources :trainers
   resources :training_sessions

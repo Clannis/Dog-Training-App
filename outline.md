@@ -64,7 +64,8 @@ ___
 ## Course
 ___
 ### Relationships
-- has many tricks
+- has many trick_courses
+- has many tricks, through trick_courses
 - has many training sessions
 - has many dogs, through training session
 - has many users, through dog
@@ -84,7 +85,7 @@ ___
 ___
 ### Relationships
 - belongs to trainer
-- belongs to dog
+- has many dogs
 - belongs to course
 ### Attributes
 - datetime
@@ -152,3 +153,12 @@ ___
 - show trick
     - info
     - link to or embedded video
+
+## Training_session_Dog (Join Table)
+---
+### Relationships
+- belongs to Training Session
+- belongs to Dog
+### Attributes
+- training_session id
+- dog id
