@@ -9,8 +9,8 @@ Rails.application.routes.draw do
   match '/auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
-  get '/signup_user', to: 'users#new', as: "user_signup"
-  get '/signup_trainer', to: 'trainerss#new', as: "trainer_signup"
+  get '/signup_user', to: 'users#new'
+  get '/signup_trainer', to: 'trainers#new'
   post '/signup_user', to: 'users#create'
   post '/signup_trainer', to: 'trainers#create'
   root 'welcome#welcome'
