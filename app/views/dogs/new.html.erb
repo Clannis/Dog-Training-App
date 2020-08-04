@@ -1,0 +1,9 @@
+<h2>Add a New Dog</h2>
+
+<%= form_for @dog do |f| %>
+    Name: <%= f.text_field :name %><br>
+    Breed: <%= f.text_field :breed %><br>
+    Age: <%= f.text_field :age %>years<br>
+    Date of last shots: <%= f.date_field :last_shot_date, :placeholder => Time.now.strftime('%Y-%m-%d') %><br>
+    <%= f.submit %>
+<% end %>
