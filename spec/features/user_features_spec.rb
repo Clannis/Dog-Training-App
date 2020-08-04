@@ -10,9 +10,10 @@ describe 'Feature Test: Before Log In', type: :feature do
             
         end
 
-        it 'has signup link' do
+        it 'has signup links' do
             visit '/'
-            expect(page).to have_content("Sign Up")
+            expect(page).to have_link("Create New Owner")
+            expect(page).to have_link("Create New Trainer")
         end
 
         it 'has login links' do
