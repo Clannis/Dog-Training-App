@@ -67,7 +67,8 @@ ___
 - has many trick_courses
 - has many tricks, through trick_courses
 - has many training sessions
-- has many dogs, through training session
+- has many training session dogs, through training sessions
+- has many dogs, through training session dogs
 - has many users, through dog
 ### Attributes
 - name
@@ -85,7 +86,8 @@ ___
 ___
 ### Relationships
 - belongs to trainer
-- has many dogs
+- has many training session dogs
+- has many dogs, through training session dogs
 - belongs to course
 ### Attributes
 - starts at

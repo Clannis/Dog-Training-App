@@ -26,4 +26,21 @@ RSpec.describe Course, type: :model do
     expect(course.training_sessions.first).to eq(training_session)
   end
 
+  it "has many dogs through training sessions" do
+    trainer = Trainer.create(username: "WD_Train", first_name: "Walt", last_name: "Disney", phone_number: "555-555-5556", email: "Disney@test.com", certification: "Top Dog Academy", password: "password")
+    training_session = TrainingSession.create(starts_at: Time.current, location: "Fischer Park", trainer_id: trainer.id, course_id: course.id)
+    user = User.create(username: "Alex", first_name: "Alex", last_name: "Rodriguez", phone_number: "123-456-7890", email: "ARod@test.com", password: "password")
+    dog = Dog.create(name: "Pitty", breed: "pitbull", age: 2, shots: true, last_shot_date: Time.current, user_id: user.id)
+    training_session.dogs << dog
+    expect(course.dogs.first).to eq(dog)
+  end
+
+  it "has many users through dogs" do
+    trainer = Trainer.create(username: "WD_Train", first_name: "Walt", last_name: "Disney", phone_number: "555-555-5556", email: "Disney@test.com", certification: "Top Dog Academy", password: "password")
+    training_session = TrainingSession.create(starts_at: Time.current, location: "Fischer Park", trainer_id: trainer.id, course_id: course.id)
+    user = User.create(username: "Alex", first_name: "Alex", last_name: "Rodriguez", phone_number: "123-456-7890", email: "ARod@test.com", password: "password")
+    dog = Dog.create(name: "Pitty", breed: "pitbull", age: 2, shots: true, last_shot_date: Time.current, user_id: user.id)
+    training_session.dogs << dog
+    expect(course.dogs.first.user).to eq(user)
+  end
 end
