@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
-  resources :training_session_dogs
-  resources :tricks
-  resources :trainers
-  resources :training_sessions
-  resources :courses
-  resources :dogs
-  resources :users
+  resources :training_session_dogs, only: []
+  resources :tricks, only: []
+  resources :trainers, only: [:show]
+  resources :training_sessions, only: []
+  resources :courses, only: []
+  resources :dogs, only: [:new, :create]
+  resources :users, only: [:show]
+  
   match '/auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
