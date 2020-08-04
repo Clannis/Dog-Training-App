@@ -88,7 +88,7 @@ ___
 - has many dogs
 - belongs to course
 ### Attributes
-- datetime
+- starts at
 - location 
 - trainer id
 - dog id

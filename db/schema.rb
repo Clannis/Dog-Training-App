@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 2020_08_04_001816) do
   end
 
   create_table "training_sessions", force: :cascade do |t|
-    t.datetime "datetime"
+    t.datetime "starts_at"
     t.string "location"
     t.integer "trainer_id"
     t.integer "dog_id"

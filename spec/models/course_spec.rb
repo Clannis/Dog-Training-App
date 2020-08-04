@@ -22,7 +22,7 @@ RSpec.describe Course, type: :model do
 
   it "has many training_sessions" do
     trainer = Trainer.create(username: "WD_Train", first_name: "Walt", last_name: "Disney", phone_number: "555-555-5556", email: "Disney@test.com", certification: "Top Dog Academy", password: "password")
-    training_session = TrainingSession.create(datetime: Time.current, location: "Fischer Park", trainer_id: trainer.id, course_id: course.id)
+    training_session = TrainingSession.create(starts_at: Time.current, location: "Fischer Park", trainer_id: trainer.id, course_id: course.id)
     expect(course.training_sessions.first).to eq(training_session)
   end
 
