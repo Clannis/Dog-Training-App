@@ -1,3 +1,49 @@
 // Place all the styles related to the Welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.center-align{
+    text-align: center;
+}
+
+.login-box{
+    background-color: rgb(97, 141, 207);
+    width: 500px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    text-align: center;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.login-link{
+    text-align: center;
+    padding: 10px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+}
+
+.Oauth{
+    text-align: center;
+    
+}
+
+.logo{
+    width: 20px;
+    height: 20px;
+    background-color: rgb(255, 255, 255);
+}
+
+.signin-box{
+    background-color: rgb(97, 141, 207);
+    width: 500px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    text-align: center;
+    border-radius: 10px;
+    padding: 20px;
+}
