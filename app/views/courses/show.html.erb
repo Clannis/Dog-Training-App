@@ -1,0 +1,13 @@
+<h2><%= @course.name %></h2>
+
+Duration: <%= @course.length%> weeks<br>
+Cost: $<%= @course.cost %><br>
+
+<h3>Dogs Enrolled in Course</h3>
+<% if @course.dogs.count == 0 %>
+  <p>No dogs are enrolled in this course</p>
+<% else %>
+    <% @course.dogs.each do |dog| %>
+        <%= dog.name %>
+    <% end %>
+<% end %>
