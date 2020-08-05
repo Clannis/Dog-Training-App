@@ -1,5 +1,5 @@
 <h2>New Owner</h2>
-<%= form_for @user do |f| %>
+<%= form_with(model: @user) do |f| %>
     Username: <%= f.text_field :username %><br>
     First Name: <%= f.text_field :first_name %><br>
     Last Name: <%= f.text_field :last_name %><br>

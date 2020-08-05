@@ -1,16 +1,34 @@
 class DogsController < ApplicationController
     def new
-        @dog = Dog.new()
+        @user = User.find_by(id: params[:user_id])
+        @dog = @user.dogs.build
     end
 
     def create
         @dog = Dog.new(dog_params)
-        byebug
+        @dog.user = User.find_by(id: session[:user_id])
         if @dog.save
-            redirect_to user_path(User.find(id: session[:user_id]))
+            byebug
+            redirect_to user_path(@dog.user)
         else
-            redirect_to new_dog_path
+            byebug
+            redirect_to new_user_dog_path
         end
+    end
+
+    def index
+        if params[:user_id]
+            @user = User.find_by(id: params[:user_id])
+            @dogs = @user.dogs
+        else
+            @dogs = Dog.all
+        end
+    end
+
+    def show
+        @user = User.find_by(id: session[:user_id])
+        @dog = Dog.find_by(id: params[:id])
+        Dog.update_shot_records
     end
 
     private

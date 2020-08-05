@@ -1,0 +1,14 @@
+<h2><%= @dog.name %></h2>
+
+Breed: <%= @dog.breed.capitalize %><br>
+Age: <%= @dog.age %> years old<br>
+Up to date on Shots: <%= @dog.shots ? "Yes" : "No" %><br>
+Date of last shots on record: <%= @dog.date_of_shots %><br>
+Owner: <%= @dog.user.name %><br>
+
+<% @dog.courses.each do |course| %>
+    <%= course.name %>
+<% end %><br>
+
+[Add link to edit dog]<br>
+[Add link to add courses]
