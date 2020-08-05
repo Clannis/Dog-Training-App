@@ -11,7 +11,12 @@ Certification: <%= @trainer.certification %><br>
 <% else %>
     <ul>
     <% @trainer.courses.each do |course| %>
-        <li><%= course.name %></li>
+        <li><%= link_to course.name, course_path(course) %></li>
+        <ul>
+            <% course.training_sessions.each do |training_session| %>
+                <li><%= training_session.starts_at %></li>
+            <% end %>
+        </ul>
     <% end %>
     </ul>
     <%= link_to "Add a Course", new_course_path %>

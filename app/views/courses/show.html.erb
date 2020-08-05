@@ -11,3 +11,10 @@ Cost: $<%= @course.cost %><br>
         <%= dog.name %>
     <% end %>
 <% end %>
+
+<h3>Training Sessions</h3>
+<ol>
+    <% @course.training_sessions.each do |training_session| %>
+        <li><%= training_session.link_label %></li>
+    <% end %>
+</ol>
