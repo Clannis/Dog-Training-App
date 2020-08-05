@@ -15,6 +15,6 @@ Cost: $<%= @course.cost %><br>
 <h3>Training Sessions</h3>
 <ol>
     <% @course.training_sessions.each do |training_session| %>
-        <li><%= link_to training_session.link_label, training_session_path(training_session) %></li>
+        <li><%= link_to training_session.link_label, edit_training_session_path(training_session) %></li>
     <% end %>
 </ol>

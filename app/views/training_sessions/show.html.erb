@@ -1,0 +1,7 @@
+<h2>Class: <%= @training_session.course.name %>, Starting on <%= @training_session.start_date %></h2>
+
+<% if @training_session.dogs.any? %>
+    <% @training_session.dogs.each do |dog| %>
+        <%= dog.name %>
+    <% end %>
+<% end %>

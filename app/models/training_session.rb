@@ -12,4 +12,8 @@ class TrainingSession < ApplicationRecord
             "Add Training Session Start Date and Location."
         end
     end
+
+    def start_date
+        self.starts_at.strftime("%b %d, %Y")
+    end
 end
