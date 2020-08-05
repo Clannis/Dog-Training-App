@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   resources :training_session_dogs, only: []
   resources :tricks, only: []
-  resources :trainers, only: [:show]
+  resources :trainers, only: [:show, :create]
   resources :training_sessions, only: []
-  resources :courses, only: []
+  resources :courses, only: [:new, :create]
   resources :dogs, only: []
   resources :users, only: [:show, :index, :create] do
     resources :dogs, only: [:new, :create, :show, :index]

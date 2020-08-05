@@ -1,0 +1,18 @@
+<h2> Welcome <%= @trainer.username %>!</h2>
+
+Name: <%= @trainer.name %><br>
+Phone Number: <%= @trainer.phone_number %><br>
+Email: <%= @trainer.email %><br>
+Certification: <%= @trainer.certification %><br>
+
+<h4>Courses you teach</h4>
+<% if @trainer.courses.count == 0%>
+    <%= link_to "Add Your First Course", new_course_path %>
+<% else %>
+    <ul>
+    <% @trainer.courses.each do |course| %>
+        <li><%= course.name %></li>
+    <% end %>
+    </ul>
+    <%= link_to "Add a Course", new_course_path %>
+<% end %>

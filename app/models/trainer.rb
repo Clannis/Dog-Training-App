@@ -5,4 +5,9 @@ class Trainer < ApplicationRecord
     has_many :users, through: :dogs
 
     has_secure_password
+    
+    def name
+        self.first_name.downcase.capitalize + " " + self.last_name.downcase.capitalize
+    end
+    
 end
