@@ -20,4 +20,10 @@ class SessionsController < ApplicationController
         end
     end
 
+    def destroy
+        session.delete :user_id if :user_id
+        session.delete :trainer_id if :trainer_id
+        redirect_to root_path
+    end
+
 end

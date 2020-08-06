@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   match '/auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
+  get '/logout', to: 'sessions#destroy'
   get '/signup_user', to: 'users#new', as: :new_user
   get '/signup_trainer', to: 'trainers#new', as: :new_trainer
   post '/signup_user', to: 'users#create'
