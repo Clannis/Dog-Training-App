@@ -16,6 +16,7 @@ class CoursesController < ApplicationController
     end
 
     def show
+        authenticate
         @course = Course.find_by(id: params[:id])
     end
 
