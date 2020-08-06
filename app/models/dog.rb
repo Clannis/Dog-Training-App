@@ -11,7 +11,6 @@ class Dog < ApplicationRecord
 
     def self.update_shot_records
         Dog.all.each do |dog|
-            # byebug
             if (dog.last_shot_date + 1.year) <= Date.current
                 dog.update(shots: false)
             else
