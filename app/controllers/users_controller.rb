@@ -14,6 +14,7 @@ class UsersController < ApplicationController
     end
 
     def show
+        authenticate
         @user = User.find_by(id: params[:id])
     end
 
