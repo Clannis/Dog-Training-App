@@ -10,5 +10,5 @@ Owner: <%= @dog.user.name %><br>
     <%= course.name %>
 <% end %><br>
 
-[Add link to edit dog]<br>
+<%= link_to "Edit #{@dog.name}'s information", edit_dog_path(@dog) %><br>
 [Add link to add courses]

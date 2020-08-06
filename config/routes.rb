@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :trainers, only: [:show, :create]
   resources :training_sessions, only: [:show, :edit, :update]
   resources :courses, only: [:new, :create, :show]
-  resources :dogs, only: []
+  resources :dogs, only: [:edit]
   resources :users, only: [:show, :index, :create] do
     resources :dogs, only: [:new, :create, :show, :index]
   end
