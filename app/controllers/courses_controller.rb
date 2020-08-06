@@ -20,6 +20,10 @@ class CoursesController < ApplicationController
         @course = Course.find_by(id: params[:id])
     end
 
+    def index
+        @courses = Course.all
+    end
+
     private
 
     def course_params

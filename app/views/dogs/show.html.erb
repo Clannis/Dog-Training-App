@@ -13,4 +13,4 @@ Owner: <%= @dog.user.name %><br>
 <%= link_to "Edit #{@dog.name}'s information", edit_dog_path(@dog) %><br>
 <%= button_to "Remove Dog", [@user, @dog], :method => :delete %>
 
-[Add link to add courses]
+<%= link_to "Enroll in a new course", courses_path %>
