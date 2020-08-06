@@ -1,4 +1,5 @@
 <h2>Class: <%= @training_session.course.name %>, Starting on <%= @training_session.start_date %></h2>
+<h3>Trainer: <%= link_to @training_session.trainer.name, trainer_path(@training_session.trainer) %></h3>
 
 <% if @training_session.dogs.any? %>
     <% @training_session.dogs.each do |dog| %>
