@@ -8,10 +8,8 @@ class DogsController < ApplicationController
         @dog = Dog.new(dog_params)
         @dog.user = User.find_by(id: session[:user_id])
         if @dog.save
-            byebug
             redirect_to user_path(@dog.user)
         else
-            byebug
             redirect_to new_user_dog_path
         end
     end
@@ -26,7 +24,6 @@ class DogsController < ApplicationController
     end
 
     def show
-        byebug
         Dog.update_shot_records
         @user = User.find_by(id: session[:user_id])
         @dog = Dog.find_by(id: params[:id])
