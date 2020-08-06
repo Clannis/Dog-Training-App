@@ -26,6 +26,7 @@ class DogsController < ApplicationController
     end
 
     def show
+        byebug
         Dog.update_shot_records
         @user = User.find_by(id: session[:user_id])
         @dog = Dog.find_by(id: params[:id])
@@ -39,6 +40,13 @@ class DogsController < ApplicationController
         @dog = Dog.find(params[:id])
         @dog.update(dog_params)
         redirect_to user_dog_path(@dog)
+    end
+
+    def destroy
+        @user = User.find_by(id: session[:user_id])
+        @dog = Dog.find(params[:id])
+        @dog.delete
+        redirect_to user_path(@user)
     end
 
     private

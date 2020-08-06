@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :courses, only: [:new, :create, :show]
   resources :dogs, only: [:edit, :show, :update]
   resources :users, only: [:show, :index, :create] do
-    resources :dogs, only: [:new, :create, :show, :index]
+    resources :dogs, only: [:new, :create, :show, :index, :destroy]
   end
 
 
