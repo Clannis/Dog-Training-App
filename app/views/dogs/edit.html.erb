@@ -6,7 +6,7 @@
     <%= f.label 'Breed: ' %>
     <%= f.text_field :breed %><br>
     <%= f.label 'Age: ' %>
-    <%= f.select :age, options_for_select(0..20), {:prompt => "@dog.age"} %> years<br>
+    <%= f.select :age, options_for_select((0..20), @dog.age)%> years<br>
     <%= f.label 'Date of last shots: ' %>
     <%= f.date_field :last_shot_date %><br>
     <%= f.submit %>
