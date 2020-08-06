@@ -15,6 +15,7 @@ class TrainersController < ApplicationController
     end
 
     def show
+        authenticate
         @trainer = Trainer.find_by(id: params[:id])
     end
 
