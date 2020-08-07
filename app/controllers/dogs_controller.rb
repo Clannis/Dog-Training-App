@@ -8,7 +8,7 @@ class DogsController < ApplicationController
         @dog = Dog.new(dog_params)
         @dog.user = User.find_by(id: session[:user_id])
         if @dog.save
-            redirect_to user_path(@dog.user)
+            redirect_to user_dog_path(@dog.user, @dog)
         else
             redirect_to new_user_dog_path
         end
@@ -43,7 +43,7 @@ class DogsController < ApplicationController
         @user = User.find_by(id: session[:user_id])
         @dog = Dog.find(params[:id])
         @dog.delete
-        redirect_to user_path(@user)
+        redirect_to user_dogs_path(@user)
     end
 
     private
