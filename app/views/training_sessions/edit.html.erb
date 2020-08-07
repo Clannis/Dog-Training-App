@@ -1,7 +1,7 @@
 <h2>Edit <%= @training_session.course.name %> Class</h2>
 
 <%= form_with(model: @training_session) do |f| %>
-    Start Date: <%= f.date_field :starts_at %><br>
-    Location: <%= f.text_field :length %><br>
+    Start Date: <%= f.date_field :datetime %><br>
+    Location: <%= f.text_field :location %><br>
     <%= f.submit %>
 <% end %>

@@ -7,14 +7,18 @@ Cost: $<%= @course.cost %><br>
 <% if @course.dogs.count == 0 %>
   <p>No dogs are enrolled in this course</p>
 <% else %>
+    <ul>
     <% @course.dogs.each do |dog| %>
-        <%= dog.name %>
+        <li><%= dog.name %></li>
     <% end %>
+    </ul>
 <% end %>
 
 <h3>Training Sessions</h3>
-<ol>
+<% if @course.training_sessions.count != 0 %>
+    <ol>
     <% @course.training_sessions.each do |training_session| %>
         <li><%= link_to training_session.link_label, edit_training_session_path(training_session) %></li>
     <% end %>
-</ol>
+    </ol>
+<% end %>
