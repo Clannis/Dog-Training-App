@@ -14,6 +14,13 @@ class TrainingSessionsController < ApplicationController
         redirect_to training_session_path(@training_session)
     end
 
+    def destroy
+        @training_session = TrainingSession.find_by(id: params[:id])
+        @course = @training_session.course
+        @training_session.delete
+        redirect_to course_path(@course)
+    end
+
     private
 
     def training_session_params

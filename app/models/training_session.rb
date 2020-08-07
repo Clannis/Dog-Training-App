@@ -7,7 +7,6 @@ class TrainingSession < ApplicationRecord
 
     def link_label
         if self.datetime && self.location
-            byebug
             "#{self.start_date} , #{self.location}"
         else
             "Add Training Session Start Date and Location."
@@ -15,7 +14,6 @@ class TrainingSession < ApplicationRecord
     end
 
     def start_date
-        byebug
         self.datetime.strftime("%b %d, %Y")
     end
 end
