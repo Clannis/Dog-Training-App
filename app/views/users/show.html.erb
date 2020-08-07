@@ -1,5 +1,11 @@
 <h2> Hello <%= @user.name %>!</h2>
 
-<h3>You have <%= @user.dogs.count %> Dogs.</h3>
+<h3>You have <%= @user.dogs.count %> <%= @user.dogs.count == 1 ? "Dog" : "Dogs" %>.</h3>
 
-<%= link_to "View Dogs", user_dogs_path(@user) %>
+<% if @user.dogs.count == 0 %>
+    <%= link_to 'Add Your First Dog', new_user_dog_path(@user) %>
+<% else %>
+    <%= link_to "View Dogs", user_dogs_path(@user) %>
+<% end %>
+
+
