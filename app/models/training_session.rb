@@ -6,7 +6,7 @@ class TrainingSession < ApplicationRecord
     belongs_to :course
 
     def link_label
-        if self.datetime && self.location
+        if self.starts_at && self.location
             "#{self.start_date} , #{self.location}"
         else
             "Add Training Session Start Date and Location."
@@ -14,6 +14,6 @@ class TrainingSession < ApplicationRecord
     end
 
     def start_date
-        self.datetime.strftime("%b %d, %Y")
+        self.starts_at.strftime("%b %d, %Y")
     end
 end

@@ -56,7 +56,6 @@ ActiveRecord::Schema.define(version: 2020_08_04_001816) do
     t.datetime "starts_at"
     t.string "location"
     t.integer "trainer_id"
-    t.integer "dog_id"
     t.integer "course_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

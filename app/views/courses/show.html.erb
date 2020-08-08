@@ -21,4 +21,6 @@ Cost: $<%= @course.cost %><br>
         <li><%= link_to training_session.link_label, edit_training_session_path(training_session) %> <%= button_to "Delete Training Session", training_session, :method => :delete %></li>
     <% end %>
     </ol>
+<% else %>
+    <%= link_to 'Create a Training Session', new_course_training_session_path(@course) %>
 <% end %>

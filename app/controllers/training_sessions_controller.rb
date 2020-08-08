@@ -21,9 +21,25 @@ class TrainingSessionsController < ApplicationController
         redirect_to course_path(@course)
     end
 
+    def new
+        @course = Course.find(params[:course_id])
+        @training_session = TrainingSession.new()
+    end
+
+    def create
+        @training_session = TrainingSession.new(training_session_params)
+        @training_session.trainer = current_user
+        @training_session.course = Course.find(params[:course_id])
+        if @training_session.save
+            redirect_to training_session_path(@training_session)
+        else
+            redirect_to new_training_session_path
+        end
+    end
+
     private
 
     def training_session_params
-        params.require(:training_session).permit(:datetime, :location)
+        params.require(:training_session).permit(:starts_at, :location)
     end
 end
