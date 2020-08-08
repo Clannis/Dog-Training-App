@@ -5,14 +5,28 @@ Phone Number: <%= @trainer.phone_number %><br>
 Email: <%= @trainer.email %><br>
 Certification: <%= @trainer.certification %><br>
 
-<h4>Courses you teach</h4>
-<% if @trainer.courses.count == 0%>
-    <%= link_to "Add Your First Course", new_course_path %>
+<% if session[:trainer_id] %>
+  
+
+    <h4>Courses you teach</h4>
+    <% if @trainer.courses.count == 0%>
+        <%= link_to "Add Your First Course", new_course_path %>
+    <% else %>
+        <ul>
+        <% @trainer.courses.each do |course| %>
+            <li><%= link_to course.name, course_path(course) %></li>
+        <% end %>
+        </ul>
+        <%= link_to "Add a Course", new_course_path %>
+    <% end %>
+
 <% else %>
+
+    <h4>Courses Offered</h4>
     <ul>
     <% @trainer.courses.each do |course| %>
-        <li><%= link_to course.name, course_path(course) %></li>
+        <li><%= link_to course.name, course_training_sessions_path(course) %></li>
     <% end %>
     </ul>
-    <%= link_to "Add a Course", new_course_path %>
+
 <% end %>

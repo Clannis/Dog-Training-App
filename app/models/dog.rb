@@ -18,4 +18,8 @@ class Dog < ApplicationRecord
             end
         end
     end
+
+    def self.owners_dogs(owner)
+        where(user_id: owner)
+    end
 end

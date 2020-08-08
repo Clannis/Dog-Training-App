@@ -7,10 +7,9 @@ class Course < ApplicationRecord
     has_many :dogs, through: :training_session_dogs
     has_many :users, through: :dogs
 
-    def training_session(course, dog)
+    def training_session(dog)
         dog.training_sessions.each do |dog_training_session|
-            if dog_training_session.course == course
-                byebug
+            if dog_training_session.course == self
                 return dog_training_session
             end
         end

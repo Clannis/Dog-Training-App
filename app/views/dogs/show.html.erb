@@ -12,7 +12,7 @@ Owner: <%= @dog.user.name %><br>
 <h3>Enrolled Courses </h3>
 <ol>
 <% @dog.courses.each do |course| %>
-    <li><%= link_to course.name, dog_training_session_path(@dog, course.training_session(course, @dog)) %></li>
+    <li><%= link_to course.name, dog_training_session_path(@dog, course.training_session(@dog)) %></li>
 <% end %>
 </ol>
 
