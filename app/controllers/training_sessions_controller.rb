@@ -22,11 +22,13 @@ class TrainingSessionsController < ApplicationController
     end
 
     def new
+        authenticate
         @course = Course.find(params[:course_id])
         @training_session = TrainingSession.new()
     end
 
     def create
+        authenticate
         @training_session = TrainingSession.new(training_session_params)
         @training_session.trainer = current_user
         @training_session.course = Course.find(params[:course_id])
