@@ -18,9 +18,13 @@ class TrainingSession < ApplicationRecord
     end
     
     def training_session_dog(dog)
-        self.training_session_dogs.each do |training_session_dog|
-            if training_session_dog.dog == dog
-                return training_session_dog
+        if self.training_session_dogs.count == 0
+            nil
+        else
+            self.training_session_dogs.each do |training_session_dog|
+                if training_session_dog.dog == dog
+                    return training_session_dog
+                end
             end
         end
     end
