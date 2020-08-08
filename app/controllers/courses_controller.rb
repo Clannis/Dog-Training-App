@@ -19,6 +19,9 @@ class CoursesController < ApplicationController
 
     def show
         authenticate
+        if params[:dog_id]
+            @dog = Dog.find(params[:dog_id])
+        end
         @course = Course.find_by(id: params[:id])
     end
 
