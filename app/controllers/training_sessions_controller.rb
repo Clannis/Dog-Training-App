@@ -1,13 +1,16 @@
 class TrainingSessionsController < ApplicationController
     def show
+        authenticate
         @training_session = TrainingSession.find_by(id: params[:id])
     end
 
     def edit
+        authenticate
         @training_session = TrainingSession.find_by(id: params[:id])
     end
 
     def update
+        authenticate
         @training_session = TrainingSession.find_by(id: params[:id])
         @training_session.update(training_session_params)
         byebug
@@ -15,6 +18,7 @@ class TrainingSessionsController < ApplicationController
     end
 
     def destroy
+        authenticate
         @training_session = TrainingSession.find_by(id: params[:id])
         @course = @training_session.course
         @training_session.delete

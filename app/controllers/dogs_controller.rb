@@ -1,10 +1,12 @@
 class DogsController < ApplicationController
     def new
+        authenticate
         @user = User.find_by(id: params[:user_id])
         @dog = @user.dogs.build
     end
 
     def create
+        authenticate
         @dog = Dog.new(dog_params)
         @dog.user = User.find_by(id: session[:user_id])
         if @dog.save
@@ -15,6 +17,7 @@ class DogsController < ApplicationController
     end
 
     def index
+        authenticate
         if params[:user_id]
             @user = User.find_by(id: params[:user_id])
             @dogs = @user.dogs
@@ -24,22 +27,26 @@ class DogsController < ApplicationController
     end
 
     def show
+        authenticate
         Dog.update_shot_records
         @user = User.find_by(id: session[:user_id])
         @dog = Dog.find_by(id: params[:id])
     end
 
     def edit
+        authenticate
         @dog = Dog.find(params[:id])
     end
 
     def update
+        authenticate
         @dog = Dog.find(params[:id])
         @dog.update(dog_params)
         redirect_to user_dog_path(@dog)
     end
 
     def destroy
+        authenticate
         @user = User.find_by(id: session[:user_id])
         @dog = Dog.find(params[:id])
         @dog.delete
