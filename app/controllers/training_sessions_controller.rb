@@ -13,7 +13,6 @@ class TrainingSessionsController < ApplicationController
         authenticate
         @training_session = TrainingSession.find_by(id: params[:id])
         @training_session.update(training_session_params)
-        byebug
         redirect_to training_session_path(@training_session)
     end
 

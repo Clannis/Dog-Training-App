@@ -10,10 +10,13 @@ Owner: <%= @dog.user.name %><br>
 <%= button_to "Remove Dog", [@user, @dog], :method => :delete %>
 
 <h3>Enrolled Courses </h3>
-<ol>
-<% @dog.courses.each do |course| %>
-    <li><%= link_to course.name, dog_training_session_path(@dog, course.training_session(@dog)) %></li>
-<% end %>
+<% if @dog.courses.count > 0 %>
+  <ol>
+    <% @dog.courses.each do |course| %>
+        <li><%= link_to course.name, dog_training_session_path(@dog, course.training_session(@dog)) %>; <%= button_to "Unenroll", course.training_session(@dog).training_session_dog(@dog) , method: :delete %></li>
+    <% end %>
 </ol>
+<% end %>
+
 
 <%= link_to "Enroll in a new course", dog_courses_path(@dog) %>

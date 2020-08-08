@@ -9,7 +9,6 @@ class CoursesController < ApplicationController
         authenticate
         trainer = Trainer.find_by(id: session[:trainer_id])
         @course = Course.find_or_create_by(course_params)
-        byebug
         if @course.save
             @course.trainers << trainer
             redirect_to edit_training_session_path(@course.training_sessions.last)
