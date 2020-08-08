@@ -22,6 +22,9 @@ class CoursesController < ApplicationController
     end
 
     def index
+        if params[:dog_id]
+            @dog = Dog.find(params[:dog_id])
+        end
         @courses = Course.all
     end
 

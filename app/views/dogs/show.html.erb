@@ -6,11 +6,14 @@ Up to date on Shots: <%= @dog.shots ? "Yes" : "No" %><br>
 Date of last shots on record: <%= @dog.date_of_shots %><br>
 Owner: <%= @dog.user.name %><br>
 
-<% @dog.courses.each do |course| %>
-    <%= course.name %>
-<% end %><br>
-
 <%= link_to "Edit #{@dog.name}'s information", edit_dog_path(@dog) %><br>
 <%= button_to "Remove Dog", [@user, @dog], :method => :delete %>
 
-<%= link_to "Enroll in a new course", courses_path %>
+<h3>Enrolled Courses </h3>
+<ol>
+<% @dog.courses.each do |course| %>
+    <li><%= course.name %></li>
+<% end %>
+</ol>
+
+<%= link_to "Enroll in a new course", dog_courses_path(@dog) %>

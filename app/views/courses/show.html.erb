@@ -18,9 +18,9 @@ Cost: $<%= @course.cost %><br>
 <% if @course.training_sessions.count != 0 %>
     <ol>
     <% @course.training_sessions.each do |training_session| %>
-        <li><%= link_to training_session.link_label, edit_training_session_path(training_session) %> <%= button_to "Delete Training Session", training_session, :method => :delete %></li>
+        <li><%= link_to training_session.link_label, session[:trainer_id] ? edit_training_session_path(training_session) : add_training_session_dog_path(training_session) %> <%= button_to "Delete Training Session", training_session, :method => :delete if session[:trainer_id] %></li>
     <% end %>
     </ol>
 <% else %>
-    <%= link_to 'Create a Training Session', new_course_training_session_path(@course) %>
+    <%= link_to 'Create a Training Session', new_course_training_session_path(@course) if session[:trainer_id] %>
 <% end %>
