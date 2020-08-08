@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   end
   resources :dogs, only: [:edit, :show, :update] do
     resources :courses, only: [:index, :show]
+    resources :training_sessions, only: [:show]
   end
   resources :users, only: [:show, :index, :create] do
     resources :dogs, only: [:new, :create, :show, :index, :destroy]

@@ -16,4 +16,5 @@ class TrainingSession < ApplicationRecord
     def start_date
         self.starts_at.strftime("%b %d, %Y")
     end
+    
 end

@@ -6,4 +6,13 @@ class Course < ApplicationRecord
     has_many :training_session_dogs, through: :training_sessions
     has_many :dogs, through: :training_session_dogs
     has_many :users, through: :dogs
+
+    def training_session(course, dog)
+        dog.training_sessions.each do |dog_training_session|
+            if dog_training_session.course == course
+                byebug
+                return dog_training_session
+            end
+        end
+    end
 end
