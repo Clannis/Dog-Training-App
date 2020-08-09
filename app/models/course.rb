@@ -7,6 +7,8 @@ class Course < ApplicationRecord
     has_many :dogs, through: :training_session_dogs
     has_many :users, through: :dogs
 
+    validates :name, uniqueness: {case_sensitive: true}
+
     def training_session(dog)
         dog.training_sessions.each do |dog_training_session|
             if dog_training_session.course == self
