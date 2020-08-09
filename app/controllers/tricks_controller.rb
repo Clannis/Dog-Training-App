@@ -23,6 +23,10 @@ class TricksController < ApplicationController
         @tricks = Trick.all
     end
 
+    def show
+        @trick = Trick.find(params[:id])
+    end
+
     private
 
     def trick_params
