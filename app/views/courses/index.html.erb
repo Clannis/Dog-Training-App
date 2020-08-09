@@ -4,5 +4,6 @@
     <li><%= link_to course.name, params[:dog_id] ? dog_course_path(@dog, course) : course_path(course) %> - <%= course.training_sessions.count %> available <%= course.training_sessions.count == 1 ? "class" : "classes" %>.</li>
 <% end %>
 </ul>
-
-<%= link_to 'Create New Course', new_course_path %>
+<% if session[:trainer_id] %>
+    <%= link_to 'Create New Course', new_course_path %>
+<% end %>
