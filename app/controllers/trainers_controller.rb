@@ -1,5 +1,7 @@
 class TrainersController < ApplicationController
 
+    include TrainersHelper
+
     def new
         @trainer = Trainer.new()
     end
@@ -25,6 +27,7 @@ class TrainersController < ApplicationController
 
     def update
         @trainer = Trainer.find_by(id: params[:id])
+        format_phone_number_input
         @trainer.update(trainer_params)
         redirect_to trainer_path(@trainer)
     end

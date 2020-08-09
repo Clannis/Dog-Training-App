@@ -3,7 +3,7 @@
     Username: <%= f.text_field :username %><br>
     First Name: <%= f.text_field :first_name %><br>
     Last Name: <%= f.text_field :last_name %><br>
-    Phone Number: <%= f.telephone_field :phone_number %><br>
+    Phone Number: <%= f.text_field :phone_number_1, maxlength: 3%> - <%= f.text_field :phone_number_2, maxlength: 3 %> - <%= f.text_field :phone_number_3, maxlength: 4 %><br>
     Email: <%= f.text_field :email %><br>
     Credentails: <%= f.text_field :certification %><br>
     <%= f.submit %>
