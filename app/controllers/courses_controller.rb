@@ -46,8 +46,14 @@ class CoursesController < ApplicationController
     def add_trick
         @course = Course.find(params[:course_id])
         @trick = Trick.find(params[:trick_id])
-        @course.tricks << @trick 
-        redirect_to course_path(@course)
+        if @course.tricks.include?(@trick)
+            @course.errors.add(:trick, "already included in this course.")
+            render "courses/show"
+        else
+            @course.tricks << @trick 
+            redirect_to course_path(@course)
+        end
+        
     end
 
     private
