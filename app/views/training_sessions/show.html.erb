@@ -1,11 +1,14 @@
 <h2>Class: <%= @training_session.course.name %>, Starting on <%= @training_session.start_date %></h2>
+<h3>Location: <%= @training_session.location %></h3>
 <h3>Trainer: <%= link_to @training_session.trainer.name, trainer_path(@training_session.trainer) %></h3>
 
-<h3>All dogs enrolled</h3>
+<h3>All dogs currently enrolled</h3>
 <% if @training_session.dogs.any? %>
+    <ol>
     <% @training_session.dogs.each do |dog| %>
-        <%= dog.name %>
+        <li><%= dog.name %> - Owner: <%= link_to dog.user.name, user_path(dog.user) %></li>
     <% end %>
+    </ol>
 <% end %>
 
 <% if session[:trainer_id] %>
