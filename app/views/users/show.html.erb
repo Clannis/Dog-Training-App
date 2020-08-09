@@ -1,4 +1,9 @@
-<h2> Hello <%= @user.name %>!</h2>
+<h2><%= @user.username %>!</h2>
+
+Name: <%= @user.name %><br>
+Phone Number: <%= @user.phone_number %><br>
+Email: <%= @user.email %><br>
+
 
 <h3>You have <%= @user.dogs.count %> <%= @user.dogs.count == 1 ? "Dog" : "Dogs" %>.</h3>
 
