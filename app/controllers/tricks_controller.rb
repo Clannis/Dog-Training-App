@@ -27,6 +27,15 @@ class TricksController < ApplicationController
         @trick = Trick.find(params[:id])
     end
 
+    def edit
+        @trick = Trick.find(params[:id])
+    end
+
+    def update
+        @trick = Trick.find(params[:id])
+        @trick.update(trick_params)
+        redirect_to trick_path(@trick)
+    end
     private
 
     def trick_params
