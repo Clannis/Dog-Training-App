@@ -9,7 +9,7 @@ Cost: $<%= @course.cost %><br>
 
 <ul>
 <% @course.tricks.each do |trick| %>
-    <li><%= trick.name %></li>
+    <li><%= trick.name %> <%= button_to "Remove trick from Course", trick.trick_course(@course) , method: :delete %></li>
 <% end %>
 </ul>
 
