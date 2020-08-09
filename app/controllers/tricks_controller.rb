@@ -1,2 +1,24 @@
 class TricksController < ApplicationController
+
+    def new
+        @course = Course.find(params[:course_id])
+        @trick = Trick.new()
+    end
+
+    def create
+        @course = Course.find(params[:course_id])
+        @trick = Trick.new(trick_params)
+        @trick.courses << @course
+        if @trick.save
+            redirect_to course_path(@course)
+        else
+            redirect_to new_course_trick_path(@course)
+        end
+    end
+
+    private
+
+    def trick_params
+        params.require(:trick).permit(:name, :description, :difficulty_rating)
+    end
 end

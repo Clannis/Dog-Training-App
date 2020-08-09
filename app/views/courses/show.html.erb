@@ -5,6 +5,18 @@ Cost: $<%= @course.cost %><br>
 
 <%= link_to 'Edit this course', edit_course_path(@course) %>
 
+<h3>Tricks Taught in this Course</h3>
+
+<ul>
+<% @course.tricks.each do |trick| %>
+    <li><%= trick.name %></li>
+<% end %>
+</ul>
+
+<% if session[:trainer_id] %>
+    <%= link_to 'Add Trick to Course', new_course_trick_path(@course) %>
+<% end %>
+
 <h3>Dogs Enrolled in Course</h3>
 <% if @course.dogs.count == 0 %>
   <p>No dogs are enrolled in this course</p>
