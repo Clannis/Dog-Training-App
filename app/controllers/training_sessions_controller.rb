@@ -19,6 +19,9 @@ class TrainingSessionsController < ApplicationController
     def destroy
         authenticate
         @training_session = TrainingSession.find_by(id: params[:id])
+        @training_session.training_session_dogs.each do |training_session_dog|
+            training_session_dog.delete
+        end
         @course = @training_session.course
         @training_session.delete
         redirect_to course_path(@course)
