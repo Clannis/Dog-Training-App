@@ -7,6 +7,7 @@ class TrainersController < ApplicationController
     end
 
     def create
+        format_phone_number_input
         @trainer = Trainer.new(trainer_params)
         if @trainer.save
             session[:trainer_id] = @trainer.id
