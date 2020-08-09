@@ -1,7 +1,5 @@
 <h2>New Training Session</h2>
 
-<%= form_with(model: [@course, @training_session]) do |f| %>
-    Start Date: <%= f.date_field :starts_at %><br>
-    Location: <%= f.text_field :location %><br>
-    <%= f.submit %>
+<%= form_tag course_training_sessions_path(@course) do %>
+    <%= render 'form' %>
 <% end %>

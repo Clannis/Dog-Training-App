@@ -7,3 +7,7 @@
         <%= dog.name %>
     <% end %>
 <% end %>
+
+<% if session[:trainer_id] %>
+    <%= link_to 'Edit this Training Session', edit_training_session_path(@training_session) %>
+<% end %>
