@@ -35,13 +35,14 @@ class TrainingSessionsController < ApplicationController
 
     def create
         authenticate
+        @course = Course.find(params[:course_id])
         @training_session = TrainingSession.new(training_session_params)
         @training_session.trainer = current_user
-        @training_session.course = Course.find(params[:course_id])
+        @training_session.course = @course
         if @training_session.save
             redirect_to training_session_path(@training_session)
         else
-            redirect_to new_training_session_path
+            redirect_to new_course_training_session_path(@course)
         end
     end
 

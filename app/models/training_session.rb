@@ -5,6 +5,8 @@ class TrainingSession < ApplicationRecord
     has_many :users, through: :dogs
     belongs_to :course
 
+    validates :starts_at, uniqueness: {scope: :trainer_id}
+
     def link_label
         if self.starts_at && self.location
             "#{self.start_date} , #{self.location}"
