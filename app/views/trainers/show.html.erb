@@ -19,7 +19,7 @@ Certification: <%= @trainer.certification %><br>
             <li><%= link_to course.name, course_path(course) %></li>
         <% end %>
         </ul>
-        <%= link_to "Add a Course", new_course_path %>
+        <%= link_to "Add a Course", courses_path %>
     <% end %>
 
 <% else %>
