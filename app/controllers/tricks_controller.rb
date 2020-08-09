@@ -16,6 +16,13 @@ class TricksController < ApplicationController
         end
     end
 
+    def index
+        if params[:course_id]
+            @course = Course.find(params[:course_id])
+        end
+        @tricks = Trick.all
+    end
+
     private
 
     def trick_params

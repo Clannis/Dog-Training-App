@@ -1,0 +1,9 @@
+<h2>All Available Tricks</h2>
+
+<ol>
+<% @tricks.each do |trick| %>
+    <li><%= trick.name%> - <%= trick.description%> <%= link_to "Add to #{@course.name}", add_course_trick_path(@course, trick) %></li>
+<% end %>
+</ol>
+
+<%= link_to 'Create new Trick', new_course_trick_path(@course) %>

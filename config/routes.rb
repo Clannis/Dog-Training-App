@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :training_sessions, only: [:show, :edit, :update, :destroy]
   resources :courses, only: [:new, :create, :show, :index, :edit, :update] do
     resources :training_sessions, only: [:new, :create, :index]
-    resources :tricks, only: [:new, :create]
+    resources :tricks, only: [:new, :create, :index]
   end
   resources :dogs, only: [:edit, :show, :update] do
     resources :courses, only: [:index, :show]
@@ -27,6 +27,7 @@ Rails.application.routes.draw do
   get '/training_session/:id/dogs/:dog_id/add', to: 'training_sessions#add_dog', as: :add_training_session_dog
   get '/users/:user_id/training_sessions/:id/add', to: 'training_sessions#user_add_dog', as: :add_user_training_session
   post '/users/:user_id/training_sessions/:training_session_id/add', to: 'training_sessions#add_dog_training_session'
+  get '/courses/:course_id/tricks/:trick_id/add', to: 'courses#add_trick', as: :add_course_trick
   root 'welcome#welcome'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

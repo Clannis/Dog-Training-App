@@ -43,6 +43,13 @@ class CoursesController < ApplicationController
         redirect_to course_path(@course)
     end
 
+    def add_trick
+        @course = Course.find(params[:course_id])
+        @trick = Trick.find(params[:trick_id])
+        @course.tricks << @trick 
+        redirect_to course_path(@course)
+    end
+
     private
 
     def course_params

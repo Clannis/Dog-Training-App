@@ -14,7 +14,7 @@ Cost: $<%= @course.cost %><br>
 </ul>
 
 <% if session[:trainer_id] %>
-    <%= link_to 'Add Trick to Course', new_course_trick_path(@course) %>
+    <%= link_to 'Add Trick to Course', course_tricks_path(@course) %>
 <% end %>
 
 <h3>Dogs Enrolled in Course</h3>
