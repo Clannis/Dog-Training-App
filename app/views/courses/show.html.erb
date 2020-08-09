@@ -3,6 +3,8 @@
 Duration: <%= @course.length%> weeks<br>
 Cost: $<%= @course.cost %><br>
 
+<%= link_to 'Edit this course', edit_course_path(@course) %>
+
 <h3>Dogs Enrolled in Course</h3>
 <% if @course.dogs.count == 0 %>
   <p>No dogs are enrolled in this course</p>

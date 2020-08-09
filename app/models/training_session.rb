@@ -21,11 +21,13 @@ class TrainingSession < ApplicationRecord
         if self.training_session_dogs.count == 0
             nil
         else
+            result = nil
             self.training_session_dogs.each do |training_session_dog|
                 if training_session_dog.dog == dog
-                    return training_session_dog
+                    result =  training_session_dog
                 end
             end
+            result
         end
     end
 end
