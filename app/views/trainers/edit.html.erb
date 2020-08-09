@@ -1,4 +1,4 @@
-<h2>New Trainer</h2>
+<h2><%= @trainer.name %>'s Info</h2>
 <%= form_with(model: @trainer) do |f| %>
     Username: <%= f.text_field :username %><br>
     First Name: <%= f.text_field :first_name %><br>
@@ -6,7 +6,5 @@
     Phone Number: <%= f.telephone_field :phone_number %><br>
     Email: <%= f.text_field :email %><br>
     Credentails: <%= f.text_field :certification %><br>
-    Password: <%= f.password_field :password %><br>
-    Password Confirmation: <%= f.password_field :password_confirmation %><br>
     <%= f.submit %>
 <% end %>

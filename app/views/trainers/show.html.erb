@@ -5,6 +5,8 @@ Phone Number: <%= @trainer.phone_number %><br>
 Email: <%= @trainer.email %><br>
 Certification: <%= @trainer.certification %><br>
 
+<%= link_to 'Edit Your Info', edit_trainer_path(@trainer) %>
+
 <% if session[:trainer_id] %>
   
 

@@ -19,6 +19,15 @@ class TrainersController < ApplicationController
         @trainer = Trainer.find_by(id: params[:id])
     end
 
+    def edit
+        @trainer = Trainer.find_by(id: params[:id])
+    end
+
+    def update
+        @trainer = Trainer.find_by(id: params[:id])
+        @trainer.update(trainer_params)
+        redirect_to trainer_path(@trainer)
+    end
     private
 
     def trainer_params
