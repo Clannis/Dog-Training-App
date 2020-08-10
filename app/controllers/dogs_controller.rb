@@ -19,8 +19,8 @@ class DogsController < ApplicationController
     def index
         authenticate
         if params[:user_id]
-            @user = User.find_by(id: params[:user_id])
-            @dogs = @user.dogs
+            @user = current_user
+            @dogs = Dog.users_dogs_by_name(current_user.id)
         else
             @dogs = Dog.all
         end

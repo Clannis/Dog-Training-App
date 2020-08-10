@@ -4,6 +4,8 @@ class Dog < ApplicationRecord
     has_many :training_sessions, through: :training_session_dogs
     has_many :trainers, through: :training_sessions
     has_many :courses, through: :training_sessions
+
+    scope :users_dogs_by_name, -> (current_user) { where("user_id =?", current_user).order("name asc")}
     
     def date_of_shots
         self.last_shot_date.strftime("%B %d, %Y")
