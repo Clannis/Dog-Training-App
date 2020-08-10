@@ -9,6 +9,7 @@ class DogsController < ApplicationController
         authenticate
         @dog = Dog.new(dog_params)
         @dog.user = User.find_by(id: session[:user_id])
+        @dog.name = @dog.name.capitalize
         if @dog.save
             redirect_to user_dog_path(@dog.user, @dog)
         else
@@ -41,6 +42,7 @@ class DogsController < ApplicationController
     def update
         authenticate
         @dog = Dog.find(params[:id])
+        params[:dog][:name] = params[:dog][:name].capitalize
         @dog.update(dog_params)
         redirect_to user_dog_path(@dog)
     end
