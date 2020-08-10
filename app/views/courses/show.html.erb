@@ -26,17 +26,6 @@ Cost: $<%= @course.cost %><br>
     <%= link_to 'Add Trick to Course', course_tricks_path(@course) %>
 <% end %>
 
-<h3>Dogs Enrolled in Course</h3>
-<% if @course.dogs.count == 0 %>
-  <p>No dogs are enrolled in this course</p>
-<% else %>
-    <ul>
-    <% @course.dogs.each do |dog| %>
-        <li><%= dog.name %></li>
-    <% end %>
-    </ul>
-<% end %>
-
 <h3>Training Sessions</h3>
 <% if @course.training_sessions.count != 0 %>
     <% if session[:trainer_id] %>
@@ -49,7 +38,7 @@ Cost: $<%= @course.cost %><br>
     <% else %>
         <ol>
         <% @course.training_sessions.each do |training_session| %>
-            <li><%= link_to training_session.link_label, training_session_path(training_session) %></li>
+            <li><%= link_to training_session.link_label, training_session_path(training_session) %> - <%= training_session.dogs.count %> Dogs enrolled in this Training Session</li>
         <% end %>
         </ol>
     <% end %>
