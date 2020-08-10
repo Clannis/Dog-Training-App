@@ -15,4 +15,7 @@
 
 <% if session[:trainer_id] %>
     <%= link_to 'Edit this Training Session', edit_training_session_path(@training_session) %>
+<% else %>
+    <%= link_to "Enroll a dog", training_session_add_dog_path(@training_session) %>
 <% end %>
+

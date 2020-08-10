@@ -46,12 +46,19 @@ class TrainingSessionsController < ApplicationController
         end
     end
 
+    def select_dog
+        authenticate
+        @training_session = TrainingSession.find_by(id: params[:id])
+        @user = current_user
+        @dogs = @user.dogs
+    end
+
     def add_dog
         authenticate
         @training_session = TrainingSession.find_by(id: params[:id])
         @dog = Dog.find(params[:dog_id])
         @training_session.dogs << @dog
-        redirect_to user_dog_path(current_user, @dog)
+        redirect_to training_session_path(@training_session)
     end
 
     def index

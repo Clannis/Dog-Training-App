@@ -25,10 +25,12 @@ Rails.application.routes.draw do
   get '/signup_trainer', to: 'trainers#new', as: :new_trainer
   post '/signup_user', to: 'users#create'
   post '/signup_trainer', to: 'trainers#create'
-  get '/training_session/:id/dogs/:dog_id/add', to: 'training_sessions#add_dog', as: :add_training_session_dog
+  # get '/training_session/:id/dogs/:dog_id/add', to: 'training_sessions#add_dog', as: :add_training_session_dog
   get '/users/:user_id/training_sessions/:id/add', to: 'training_sessions#user_add_dog', as: :add_user_training_session
   post '/users/:user_id/training_sessions/:training_session_id/add', to: 'training_sessions#add_dog_training_session'
   get '/courses/:course_id/tricks/:trick_id/add', to: 'courses#add_trick', as: :add_course_trick
+  get '/training_sessions/:id/add_dog', to: 'training_sessions#select_dog', as: :training_session_add_dog
+  post '/training_sessions/:id/add_dog', to: 'training_sessions#add_dog'
   root 'welcome#welcome'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
