@@ -49,7 +49,7 @@ Cost: $<%= @course.cost %><br>
     <% else %>
         <ol>
         <% @course.training_sessions.each do |training_session| %>
-            <li><%= training_session.training_session_dog(@dog) ? training_session.link_label : (link_to training_session.link_label, training_session_path(training_session))  %></li>
+            <li><%= link_to training_session.link_label, training_session_path(training_session) %></li>
         <% end %>
         </ol>
     <% end %>
