@@ -6,7 +6,7 @@
 <% if @training_session.dogs.any? %>
     <ol>
     <% @training_session.dogs.each do |dog| %>
-        <li><%= dog.name %> - Owner: <%= link_to dog.user.name, user_path(dog.user) %></li>
+        <li><%= dog.name %> - Owner: <%= dog.user.name %></li>
     <% end %>
     </ol>
 <% else %>
