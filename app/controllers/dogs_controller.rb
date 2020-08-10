@@ -1,7 +1,7 @@
 class DogsController < ApplicationController
     def new
         authenticate
-        @user = User.find_by(id: params[:user_id])
+        @user = current_user
         @dog = @user.dogs.build
     end
 
