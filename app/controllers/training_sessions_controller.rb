@@ -50,15 +50,23 @@ class TrainingSessionsController < ApplicationController
         authenticate
         @training_session = TrainingSession.find_by(id: params[:id])
         @user = current_user
-        @dogs = @user.dogs
+        @dogs = Dog.users_dogs_by_name(@user)
     end
 
     def add_dog
         authenticate
         @training_session = TrainingSession.find_by(id: params[:id])
         @dog = Dog.find(params[:dog_id])
-        @training_session.dogs << @dog
-        redirect_to training_session_path(@training_session)
+        if @dog.shots
+            @training_session.dogs << @dog
+            redirect_to training_session_path(@training_session)
+        else
+            @dog.errors.add(:shots, "are not up to date. You cannot enroll #{@dog.name} in any courses.")
+            @user = current_user
+            @dogs = Dog.users_dogs_by_name(@user)
+            render "select_dog"
+        end
+        
     end
 
     def index

@@ -1,5 +1,11 @@
 <h2>Which dog do you want to add to <%= @training_session.course.name %> starting <%= @training_session.start_date %>?</h2>
 
+<% if @dog && @dog.errors.any? %>
+    <% @dog.errors.full_messages.each do |error| %>
+        <%= error %>
+    <% end %>
+<% end %>
+
 <h3><%= @user.name %>'s Dogs</h3>
 <%= form_with do |f| %>
     <%= f.collection_select :dog_id, @dogs, :id, :name%>
