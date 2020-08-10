@@ -9,6 +9,8 @@
         <li><%= dog.name %> - Owner: <%= link_to dog.user.name, user_path(dog.user) %></li>
     <% end %>
     </ol>
+<% else %>
+    No dogs are currently enrolled.
 <% end %>
 
 <% if session[:trainer_id] %>
