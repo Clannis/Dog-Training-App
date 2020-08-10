@@ -51,6 +51,9 @@ class DogsController < ApplicationController
         authenticate
         @user = User.find_by(id: session[:user_id])
         @dog = Dog.find(params[:id])
+        @dog.training_session_dogs.each do |training_session_dog|
+            training_session_dog.delete
+        end
         @dog.delete
         redirect_to user_dogs_path(@user)
     end
