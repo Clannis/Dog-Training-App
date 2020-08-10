@@ -13,7 +13,7 @@ Owner: <%= @dog.user.name %><br>
 <% if @dog.courses.count > 0 %>
   <ol>
     <% @dog.courses.each do |course| %>
-        <li><%= link_to course.name, dog_training_session_path(@dog, course.training_session(@dog)) %>; <%= button_to "Unenroll", course.training_session(@dog).training_session_dog(@dog) , method: :delete %></li>
+        <li><%= link_to course.name, dog_training_session_path(@dog, course.training_session(@dog)) %>; <%= course.training_session(@dog).start_date %> <%= button_to "Unenroll", course.training_session(@dog).training_session_dog(@dog) , method: :delete %></li>
     <% end %>
 </ol>
 <% end %>
