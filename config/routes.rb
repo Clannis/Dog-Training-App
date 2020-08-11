@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     resources :training_sessions, only: [:show]
   end
   resources :users, only: [:show, :index, :create] do
-    resources :dogs, only: [:show, :index, :destroy]
+    resources :dogs, only: [:new, :create, :show, :index, :destroy]
   end
 
 
