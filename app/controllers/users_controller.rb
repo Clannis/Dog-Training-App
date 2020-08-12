@@ -15,6 +15,7 @@ class UsersController < ApplicationController
 
     def show
         authenticate
+        page_owner_redirect
         @user = User.find_by(id: params[:id])
     end
 
