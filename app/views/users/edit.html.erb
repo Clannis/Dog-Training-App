@@ -1,0 +1,8 @@
+<h2>Edit <%= @user.name %>'s Information</h2>
+<%= form_with(model: @user) do |f| %>
+    First Name: <%= f.text_field :first_name %><br>
+    Last Name: <%= f.text_field :last_name %><br>
+    Phone Number: <%= f.telephone_field :phone_number %><br>
+    Email: <%= f.text_field :email %><br>
+    <%= f.submit %>
+<% end %>
