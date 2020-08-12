@@ -4,6 +4,8 @@ Name: <%= @user.name %><br>
 Phone Number: <%= @user.display_phone_number %><br>
 Email: <%= @user.email %><br>
 
+<%= link_to "Edit Your Info", edit_user_path %>
+
 
 <h3>You have <%= @user.dogs.count %> <%= @user.dogs.count == 1 ? "Dog" : "Dogs" %>.</h3>
 

@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     resources :courses, only: [:index, :show]
     resources :training_sessions, only: [:show]
   end
-  resources :users, only: [:show, :index, :create] do
+  resources :users, only: [:show, :index, :create, :edit, :update] do
     resources :dogs, only: [:new, :create, :show, :index, :destroy]
   end
 
