@@ -1,5 +1,5 @@
-First Name: <%= text_field_tag :first_name %><br>
-Last Name: <%= text_field_tag :last_name %><br>
+First Name: <%= text_field_tag :first_name, @trainer.first_name %><br>
+Last Name: <%= text_field_tag :last_name, @trainer.last_name %><br>
 Phone Number: <%= text_field_tag :phone_number_1, (@trainer.phone_number ? @trainer.phone_number[0..2] : nil), maxlength: 3, size: 3 %> - <%= text_field_tag :phone_number_2, (@trainer.phone_number ? @trainer.phone_number[3..5] : nil), maxlength: 3, size: 3 %> - <%= text_field_tag :phone_number_3, (@trainer.phone_number ? @trainer.phone_number[6..9] : nil), maxlength: 4, size: 4 %><br>
-Email: <%= text_field_tag :email %><br>
-Credentails: <%= text_field_tag :certification %><br>
+Email: <%= text_field_tag :email, @trainer.email %><br>
+Credentails: <%= text_field_tag :certification, @trainer.certification %><br>

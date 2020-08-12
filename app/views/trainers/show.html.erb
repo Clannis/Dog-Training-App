@@ -5,10 +5,10 @@ Phone Number: <%= @trainer.display_phone_number %><br>
 Email: <%= @trainer.email %><br>
 Certification: <%= @trainer.certification %><br>
 
-<%= link_to 'Edit Your Info', edit_trainer_path(@trainer) %>
+
 
 <% if session[:trainer_id] %>
-  
+    <%= link_to 'Edit Your Info', edit_trainer_path(@trainer) %>
 
     <h4>Courses you teach</h4>
     <% if @trainer.courses.count == 0%>
