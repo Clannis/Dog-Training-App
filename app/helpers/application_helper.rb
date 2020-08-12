@@ -30,4 +30,16 @@ module ApplicationHelper
         redirect_to root_path if !logged_in?
     end
 
+    def format_phone_number_input
+        if params[:trainer]
+            if !params[:trainer][:phone_number_1].empty? && !params[:trainer][:phone_number_2].empty? && !params[:trainer][:phone_number_3].empty?
+                params[:trainer][:phone_number] = params[:trainer][:phone_number_1] + params[:trainer][:phone_number_2] + params[:trainer][:phone_number_3]
+            end
+        elsif params[:user]
+            if !params[:user][:phone_number_1].empty? && !params[:user][:phone_number_2].empty? && !params[:user][:phone_number_3].empty?
+                params[:user][:phone_number] = params[:user][:phone_number_1] + params[:user][:phone_number_2] + params[:user][:phone_number_3]
+            end
+        end
+    end
+
 end

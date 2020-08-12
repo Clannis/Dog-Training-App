@@ -2,7 +2,7 @@
 
 <%= form_with(model: @course) do |f| %>
     Name: <%= f.text_field :name %><br>
-    Length: <%= f.text_field :length %> weeks<br>
+    Length: <%= f.select :length, options_for_select((0..20), @course.length)%> weeks<br>
     Cost: $<%= f.text_field :cost %><br>
     <%= f.submit %>
 <% end %>
