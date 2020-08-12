@@ -1,11 +1,8 @@
 <h2>New Owner</h2>
-<%= form_with(model: @user) do |f| %>
-    Username: <%= f.text_field :username %><br>
-    First Name: <%= f.text_field :first_name %><br>
-    Last Name: <%= f.text_field :last_name %><br>
-    Phone Number: <%= f.telephone_field :phone_number %><br>
-    Email: <%= f.text_field :email %><br>
-    Password: <%= f.password_field :password %><br>
-    Password Confirmation: <%= f.password_field :password_confirmation %><br>
-    <%= f.submit %>
+<%= form_tag new_user_path(@user) do %>
+    Username: <%= text_field_tag :username %><br>
+    <%= render 'form' %>
+    Password: <%= password_field_tag :password %><br>
+    Password Confirmation: <%= password_field_tag :password_confirmation %><br>
+    <%= submit_tag "Create New Owner" %>
 <% end %>

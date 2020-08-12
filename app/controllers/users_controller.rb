@@ -24,6 +24,7 @@ class UsersController < ApplicationController
 
     def update
         @user = current_user
+        format_phone_number_input
         @user.update(user_params)
         redirect_to user_path(@user)
     end
