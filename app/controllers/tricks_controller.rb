@@ -12,7 +12,7 @@ class TricksController < ApplicationController
         if @trick.save
             redirect_to course_path(@course)
         else
-            redirect_to new_course_trick_path(@course)
+            render 'new'
         end
     end
 
@@ -33,8 +33,11 @@ class TricksController < ApplicationController
 
     def update
         @trick = Trick.find(params[:id])
-        @trick.update(trick_params)
-        redirect_to trick_path(@trick)
+        if @trick.update(trick_params)
+            redirect_to trick_path(@trick)
+        else
+            render 'edit'
+        end
     end
     private
 

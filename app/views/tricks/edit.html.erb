@@ -1,4 +1,12 @@
-<h2><%= @trick.name%></h2>
+<h2>Edit Trick Info</h2>
+
+<% if @trick.errors.any? %>
+    <ul>
+    <% @trick.errors.full_messages.each do |error| %>
+        <li><%= error %><br></li>
+    <% end %>
+    </ul>
+<% end %>
 
 <%= form_with(model: @trick) do |f| %>
   <%= render 'form' %>
