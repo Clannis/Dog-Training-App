@@ -6,6 +6,7 @@ class TrainingSession < ApplicationRecord
     belongs_to :course
 
     validates :starts_at, uniqueness: {scope: :trainer_id}
+    validates :starts_at, :location, presence: true
 
     def link_label
         if self.starts_at && self.location
