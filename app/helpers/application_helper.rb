@@ -57,4 +57,12 @@ module ApplicationHelper
         end
     end
 
+    def trainer_logged_in?
+        if session[:trainer_id]
+            true
+        else
+            false
+        end
+    end
+
 end

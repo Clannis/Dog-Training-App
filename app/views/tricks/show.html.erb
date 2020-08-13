@@ -2,6 +2,6 @@
 Description: <%= @trick.description %><br>
 Difficulty Rating: <%= @trick.difficulty_rating %><br>
 
-<% if session[:trainer_id] %>
+<% if trainer_logged_in? %>
     <%= link_to 'Edit Trick', edit_trick_path(@trick) %>
 <% end %>
