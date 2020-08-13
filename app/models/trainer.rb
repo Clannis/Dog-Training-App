@@ -19,5 +19,14 @@ class Trainer < ApplicationRecord
     def display_phone_number
         "(#{self.phone_number[0..2]}) #{self.phone_number[3..5]} - #{self.phone_number[6..9]}"
     end
+
+    def self.find_trainer(email)
+        trainer = where(email: email)
+        if trainer.count > 1
+            nil
+        else
+            trainer.first
+        end
+    end
     
 end
