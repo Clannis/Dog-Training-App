@@ -1,5 +1,5 @@
 <h2>Edit <%= @user.name %>'s Information</h2>
-<%= form_tag edit_user_path(@user), method: 'put' do  %>
+<%= form_tag user_path(@user), method: 'put' do  %>
     <%= render 'form' %>
     <%= submit_tag 'Update Your Info' %>
 <% end %>

@@ -4,6 +4,8 @@ class User < ApplicationRecord
     has_many :courses, through: :training_sessions
     has_secure_password
 
+    validates :username, uniqueness: true
+
     def name
         self.first_name.downcase.capitalize + " " + self.last_name.downcase.capitalize
     end
