@@ -13,7 +13,7 @@
     <p>No dogs are currently enrolled.</p><br>
 <% end %>
 
-<% if session[:trainer_id] %>
+<% if trainer_logged_in? %>
     <%= link_to 'Edit this Training Session', edit_training_session_path(@training_session) %>
 <% else %>
     <%= link_to "Enroll a dog", training_session_add_dog_path(@training_session) %>
