@@ -7,7 +7,7 @@ Certification: <%= @trainer.certification %><br>
 
 
 
-<% if session[:trainer_id] %>
+<% if trainer_logged_in? %>
     <%= link_to 'Edit Your Info', edit_trainer_path(@trainer) %>
 
     <h4>Courses you teach</h4>
