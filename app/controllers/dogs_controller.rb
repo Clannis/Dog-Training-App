@@ -13,7 +13,7 @@ class DogsController < ApplicationController
         if @dog.save
             redirect_to user_dog_path(@dog.user, @dog)
         else
-            redirect_to new_user_dog_path
+            render 'new'
         end
     end
 
@@ -43,8 +43,11 @@ class DogsController < ApplicationController
         authenticate
         @dog = Dog.find(params[:id])
         params[:dog][:name] = params[:dog][:name].capitalize
-        @dog.update(dog_params)
-        redirect_to user_dog_path(@dog)
+        if @dog.update(dog_params)
+            redirect_to user_dog_path(@dog)
+        else
+            render 'edit'
+        end
     end
 
     def destroy

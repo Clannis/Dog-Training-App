@@ -1,4 +1,12 @@
-<h2><%= @dog.name %></h2>
+<h2>Edit Your Dog's Info</h2>
+
+<% if @dog.errors.any? %>
+    <ul>
+    <% @dog.errors.full_messages.each do |error| %>
+        <li><%= error %><br></li>
+    <% end %>
+    </ul>
+<% end %>
 
 <%= form_for @dog do |f| %>
     <%= render 'form' %>

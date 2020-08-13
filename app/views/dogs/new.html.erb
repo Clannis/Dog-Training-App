@@ -1,5 +1,13 @@
 <h2>Add a New Dog</h2>
 
+<% if @dog.errors.any? %>
+    <ul>
+    <% @dog.errors.full_messages.each do |error| %>
+        <li><%= error %><br></li>
+    <% end %>
+    </ul>
+<% end %>
+
 <%= form_with(model:  @dog) do |f| %>
     <%= render 'form' %>
 <% end %>
