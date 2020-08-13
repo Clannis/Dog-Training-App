@@ -13,7 +13,7 @@ class TrainersController < ApplicationController
             session[:trainer_id] = @trainer.id
             redirect_to trainer_path(@trainer)
         else
-            redirect_to new_trainer_path
+            render 'new'
         end
     end
 
@@ -29,13 +29,22 @@ class TrainersController < ApplicationController
     def update
         @trainer = Trainer.find_by(id: params[:id])
         format_phone_number_input
-        @trainer.update(trainer_params)
-        redirect_to trainer_path(@trainer)
+        if @trainer.update(update_trainer_params)
+            redirect_to trainer_path(@trainer)
+        else
+            # cannot find why password error is added
+            @trainer.errors.delete(:password) if @trainer.errors[:password] 
+            render 'edit'
+        end
     end
     private
 
     def trainer_params
         params.require(:trainer).permit(:username, :first_name, :last_name, :phone_number, :email, :certification, :password, :password_confirmation)
+    end
+
+    def update_trainer_params
+        params.require(:trainer).permit(:username, :first_name, :last_name, :phone_number, :email, :certification)
     end
 
 end

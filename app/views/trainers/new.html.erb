@@ -1,4 +1,13 @@
 <h2>New Trainer</h2>
+
+<% if @trainer.errors.any? %>
+    <ul>
+    <% @trainer.errors.full_messages.each do |error| %>
+        <li><%= error %><br></li>
+    <% end %>
+    </ul>
+<% end %>
+
 <%= form_with(model: @trainer) do |f| %>
     Username: <%= f.text_field :username %><br>
     <%= render 'form' %>

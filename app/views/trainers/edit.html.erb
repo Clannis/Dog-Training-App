@@ -1,4 +1,13 @@
-<h2><%= @trainer.name %>'s Info</h2>
+<h2><%= @trainer.username %>'s Info</h2>
+
+<% if @trainer.errors.any? %>
+    <ul>
+    <% @trainer.errors.full_messages.each do |error| %>
+        <li><%= error %><br></li>
+    <% end %>
+    </ul>
+<% end %>
+
 <%= form_with(model: @trainer) do |f| %>
     <%= render 'form' %>
     <%= f.submit %>
