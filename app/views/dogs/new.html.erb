@@ -1,9 +1,5 @@
 <h2>Add a New Dog</h2>
 
 <%= form_with(model:  @dog) do |f| %>
-    Name: <%= f.text_field :name %><br>
-    Breed: <%= f.text_field :breed %><br>
-    Age: <%= f.select :age, options_for_select((0..20), @dog.age)%> years<br>
-    Date of last shots: <%= f.date_field :last_shot_date, :value => Time.now.strftime('%Y-%m-%d') %><br>
-    <%= f.submit %>
+    <%= render 'form' %>
 <% end %>
