@@ -2,4 +2,3 @@ Name: <%= text_field_tag "[dog][name]", @dog.name %><br>
 Breed: <%= text_field_tag "[dog][breed]", @dog.breed %><br>
 Age: <%= select_tag "[dog][age]", options_for_select((0..20), @dog.age)%> years<br>
 Date of last shots: <%= date_field_tag "[dog][last_shot_date]", (@dog.last_shot_date ? @dog.last_shot_date.strftime('%Y-%m-%d') : Time.now.strftime('%Y-%m-%d')) %><br>
-<%= submit_tag "Submit" %>
