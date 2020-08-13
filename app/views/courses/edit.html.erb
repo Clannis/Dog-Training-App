@@ -1,11 +1,5 @@
 <h2><%= @course.name %></h2>
 
 <%= form_for @course do |f| %>
-    <%= f.label 'Name: ' %>
-    <%= f.text_field :name %><br>
-    <%= f.label 'Length: ' %>
-    <%= f.select :length, options_for_select((0..10), @course.length) %> weeks.<br>
-    <%= f.label 'Cost: ' %>
-    $ <%= f.text_field :cost %><br>
-    <%= f.submit %>
+    <%= render 'form' %>
 <% end %>
