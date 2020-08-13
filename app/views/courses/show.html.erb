@@ -11,22 +11,18 @@
 Duration: <%= @course.length%> weeks<br>
 Cost: $<%= @course.cost %><br>
 
-<% if session[:trainer_id] %>
-    <%= link_to 'Edit this course', edit_course_path(@course) %>
-<% end %>
+<%= course_edit_link %>
 
 
 <h3>Tricks Taught in this Course</h3>
 
 <ul>
 <% @course.tricks.each do |trick| %>
-    <li><%= link_to trick.name, trick_path(trick) %> <%= button_to "Remove trick from Course", trick.trick_course(@course) , method: :delete if session[:trainer_id] %></li>
+    <li><%= link_to trick.name, trick_path(trick) %> <%= remove_trick_from_course_button(trick, @course) %></li>
 <% end %>
 </ul>
 
-<% if session[:trainer_id] %>
-    <%= link_to 'Add Trick to Course', course_tricks_path(@course) %>
-<% end %>
+<%= add_trick_to_to_course_link(@course) %>
 
 <h3>Training Sessions</h3>
 <% if @course.training_sessions.count != 0 %>
