@@ -5,6 +5,8 @@ class Dog < ApplicationRecord
     has_many :trainers, through: :training_sessions
     has_many :courses, through: :training_sessions
 
+    validates :name, :breed, :age, :last_shot_date, presence: true
+
     scope :users_dogs_by_name, -> (current_user) { where("user_id =?", current_user).order("name asc")}
     
     def date_of_shots
