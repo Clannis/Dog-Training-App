@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   end
 
 
-  match '/auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
+  match '/auth/:provider/callback', to: 'sessions#github', via: [:get, :post]
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'

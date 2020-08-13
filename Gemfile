@@ -31,6 +31,8 @@ gem 'bootsnap', '>= 1.4.2', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem "omniauth", "~> 1.9"
+  gem "omniauth-github", "~> 1.4"
   gem "rspec-rails"
   gem "capybara", "~> 3.33"
   gem "database_cleaner"
@@ -49,10 +51,12 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem "omniauth", "~> 1.9"
+
 
 gem "omniauth-facebook", "~> 6.0"
 
 gem "omniauth-google", "~> 1.0"
 
 gem "dotenv-rails", "~> 2.7"
+
+

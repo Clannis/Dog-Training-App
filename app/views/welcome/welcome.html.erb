@@ -1,8 +1,20 @@
 <h1 class="center-align">Welcome to [Dog Training Company Name]</h1>
+
+<% if @error %>
+    <ul>
+    <% @error.each do |name, error| %>
+        <li><%= error %><br></li>
+    <% end %>
+    </ul>
+<% end %>
+
 <h3 class="center-align">Login</h3>
 <div class="login-box">
     <div class="login-link credential">
         <%= link_to "Log In with Credentials", login_path %>
+    </div>
+    <div class="login-link Oauth ">
+        <%= link_to image_tag("/images/github-logo.png", border: 0, :class => "logo") + " Log In with GitHub", '/auth/github', class: "github" %>
     </div>
     <div class="login-link Oauth ">
         <%= link_to image_tag("/images/facebook-logo.png", border: 0, :class => "logo") + " Log In with Facebook", 'auth/facebook', class: "facebook" %>
