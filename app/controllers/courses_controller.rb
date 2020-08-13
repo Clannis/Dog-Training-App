@@ -13,7 +13,7 @@ class CoursesController < ApplicationController
             @course.trainers << trainer
             redirect_to edit_training_session_path(@course.training_sessions.last)
         else
-            redirect_to new_course_path
+            render 'new'
         end
     end
 
@@ -39,8 +39,11 @@ class CoursesController < ApplicationController
 
     def update
         @course = Course.find(params[:id])
-        @course.update(course_params)
-        redirect_to course_path(@course)
+        if @course.update(course_params)
+            redirect_to course_path(@course)
+        else
+            render 'edit'
+        end
     end
 
     def add_trick
