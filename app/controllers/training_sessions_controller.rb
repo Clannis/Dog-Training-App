@@ -12,8 +12,11 @@ class TrainingSessionsController < ApplicationController
     def update
         authenticate
         @training_session = TrainingSession.find_by(id: params[:id])
-        @training_session.update(training_session_params)
-        redirect_to training_session_path(@training_session)
+        if @training_session.update(training_session_params)
+            redirect_to training_session_path(@training_session)
+        else
+            render 'edit'
+        end
     end
 
     def destroy
@@ -42,7 +45,7 @@ class TrainingSessionsController < ApplicationController
         if @training_session.save
             redirect_to training_session_path(@training_session)
         else
-            redirect_to new_course_training_session_path(@course)
+            render 'new'
         end
     end
 

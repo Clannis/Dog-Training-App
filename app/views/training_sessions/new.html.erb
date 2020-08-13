@@ -1,5 +1,13 @@
 <h2>New Training Session</h2>
 
+<% if @training_session.errors.any? %>
+    <ul>
+    <% @training_session.errors.full_messages.each do |error| %>
+        <li><%= error %><br></li>
+    <% end %>
+    </ul>
+<% end %>
+
 <%= form_tag course_training_sessions_path(@course) do %>
     <%= render 'form' %>
 <% end %>
