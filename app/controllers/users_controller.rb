@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+    before_action :authenticate
+    skip_before_action :authenticate, only: [:new, :create]
+
     def new
         @user = User.new()
     end
@@ -15,7 +18,6 @@ class UsersController < ApplicationController
     end
 
     def show
-        authenticate
         page_owner_redirect
         @user = User.find_by(id: params[:id])
     end

@@ -1,12 +1,12 @@
 class DogsController < ApplicationController
+    before_action :authenticate
+
     def new
-        authenticate
         @user = current_user
         @dog = @user.dogs.build
     end
 
     def create
-        authenticate
         @dog = Dog.new(dog_params)
         @dog.user = User.find_by(id: session[:user_id])
         @dog.name = @dog.name.capitalize
@@ -18,7 +18,6 @@ class DogsController < ApplicationController
     end
 
     def index
-        authenticate
         if params[:user_id]
             @user = current_user
             @dogs = Dog.users_dogs_by_name(current_user.id)
@@ -28,19 +27,16 @@ class DogsController < ApplicationController
     end
 
     def show
-        authenticate
         Dog.update_shot_records
         @user = User.find_by(id: session[:user_id])
         @dog = Dog.find_by(id: params[:id])
     end
 
     def edit
-        authenticate
         @dog = Dog.find(params[:id])
     end
 
     def update
-        authenticate
         @dog = Dog.find(params[:id])
         params[:dog][:name] = params[:dog][:name].capitalize
         if @dog.update(dog_params)
@@ -51,7 +47,6 @@ class DogsController < ApplicationController
     end
 
     def destroy
-        authenticate
         @user = User.find_by(id: session[:user_id])
         @dog = Dog.find(params[:id])
         @dog.training_session_dogs.each do |training_session_dog|

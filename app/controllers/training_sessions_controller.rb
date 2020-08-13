@@ -1,16 +1,15 @@
 class TrainingSessionsController < ApplicationController
+    before_action :authenticate
+
     def show
-        authenticate
         @training_session = TrainingSession.find_by(id: params[:id])
     end
 
     def edit
-        authenticate
         @training_session = TrainingSession.find_by(id: params[:id])
     end
 
     def update
-        authenticate
         @training_session = TrainingSession.find_by(id: params[:id])
         if @training_session.update(training_session_params)
             redirect_to training_session_path(@training_session)
@@ -20,7 +19,6 @@ class TrainingSessionsController < ApplicationController
     end
 
     def destroy
-        authenticate
         @training_session = TrainingSession.find_by(id: params[:id])
         @training_session.training_session_dogs.each do |training_session_dog|
             training_session_dog.delete
@@ -31,13 +29,11 @@ class TrainingSessionsController < ApplicationController
     end
 
     def new
-        authenticate
         @course = Course.find(params[:course_id])
         @training_session = TrainingSession.new()
     end
 
     def create
-        authenticate
         @course = Course.find(params[:course_id])
         @training_session = TrainingSession.new(training_session_params)
         @training_session.trainer = current_user
@@ -50,14 +46,12 @@ class TrainingSessionsController < ApplicationController
     end
 
     def select_dog
-        authenticate
         @training_session = TrainingSession.find_by(id: params[:id])
         @user = current_user
         @dogs = Dog.users_dogs_by_name(@user)
     end
 
     def add_dog
-        authenticate
         @training_session = TrainingSession.find_by(id: params[:id])
         @dog = Dog.find(params[:dog_id])
         if @dog.shots

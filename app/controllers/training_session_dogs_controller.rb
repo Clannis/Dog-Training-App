@@ -1,4 +1,5 @@
 class TrainingSessionDogsController < ApplicationController
+    before_action :authenticate
 
     def destroy
         @training_session_dog = TrainingSessionDog.find(params[:id])

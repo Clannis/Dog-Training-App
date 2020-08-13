@@ -1,4 +1,5 @@
 class TrickCoursesController < ApplicationController
+    before_action :authenticate
 
     def destroy
         @trick_course = TrickCourse.find(params[:id])

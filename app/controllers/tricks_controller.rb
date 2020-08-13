@@ -1,4 +1,5 @@
 class TricksController < ApplicationController
+    before_action :authenticate
 
     def new
         @course = Course.find(params[:course_id])

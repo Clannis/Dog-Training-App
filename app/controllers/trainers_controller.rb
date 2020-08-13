@@ -1,6 +1,7 @@
 class TrainersController < ApplicationController
-
     include TrainersHelper
+    before_action :authenticate
+    skip_before_action :authenticate, only: [:new, :create]
 
     def new
         @trainer = Trainer.new()
@@ -18,7 +19,6 @@ class TrainersController < ApplicationController
     end
 
     def show
-        authenticate
         @trainer = Trainer.find_by(id: params[:id])
     end
 
