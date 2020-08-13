@@ -18,14 +18,6 @@ module CoursesHelper
         end
     end
 
-    def trainer_logged_in?
-        if session[:trainer_id]
-            true
-        else
-            false
-        end
-    end
-
     def training_session_exists_path(training_session)
         if training_session.link_label == "Add Training Session Start Date and Location."
             edit_training_session_path(training_session)

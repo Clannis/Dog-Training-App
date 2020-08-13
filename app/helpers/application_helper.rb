@@ -26,10 +26,6 @@ module ApplicationHelper
         end
     end
 
-    def authenticate
-        redirect_to root_path if !logged_in?
-    end
-
     def page_owner_redirect
         if session[:user_id]
             user = User.find(params[:id])

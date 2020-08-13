@@ -1,12 +1,11 @@
 class CoursesController < ApplicationController
+    before_action :authenticate
 
     def new
-        authenticate
         @course = Course.new()
     end
 
     def create
-        authenticate
         trainer = Trainer.find_by(id: session[:trainer_id])
         @course = Course.find_or_create_by(course_params)
         if @course.save
@@ -18,7 +17,6 @@ class CoursesController < ApplicationController
     end
 
     def show
-        authenticate
         if params[:dog_id]
             @dog = Dog.find(params[:dog_id])
         end
@@ -26,7 +24,6 @@ class CoursesController < ApplicationController
     end
 
     def index
-        authenticate
         if params[:dog_id]
             @dog = Dog.find(params[:dog_id])
         end
