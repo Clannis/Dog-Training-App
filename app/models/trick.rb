@@ -3,6 +3,7 @@ class Trick < ApplicationRecord
     has_many :courses, through: :trick_courses
 
     validates :name, uniqueness: {case_sensitive: false}
+    validates :name, :description, :difficulty_rating, presence: true
 
     def trick_course(course)
         if self.trick_courses.count == 0
