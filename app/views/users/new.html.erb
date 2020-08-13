@@ -1,8 +1,17 @@
 <h2>New Owner</h2>
+
+<% if @user.errors.any? %>
+    <ul>
+    <% @user.errors.full_messages.each do |error| %>
+        <li><%= error %><br></li>
+    <% end %>
+    </ul>
+<% end %>
+
 <%= form_tag new_user_path(@user) do %>
-    Username: <%= text_field_tag :username %><br>
+    Username: <%= text_field_tag "[user][username]" %><br>
     <%= render 'form' %>
-    Password: <%= password_field_tag :password %><br>
-    Password Confirmation: <%= password_field_tag :password_confirmation %><br>
+    Password: <%= password_field_tag "[user][password]" %><br>
+    Password Confirmation: <%= password_field_tag "[user][password_confirmation]" %><br>
     <%= submit_tag "Create New Owner" %>
 <% end %>
