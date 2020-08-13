@@ -8,8 +8,7 @@ Rails.application.routes.draw do
     resources :training_sessions, only: [:new, :create, :index]
     resources :tricks, only: [:new, :create, :index]
   end
-  resources :dogs, only: [:new, :create, :edit, :show, :update] do
-    resources :courses, only: [:index, :show]
+  resources :dogs, only: [:edit, :show, :update] do
     resources :training_sessions, only: [:show]
   end
   resources :users, only: [:show, :index, :create, :edit, :update] do
