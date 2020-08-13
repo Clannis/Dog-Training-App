@@ -8,7 +8,8 @@ class Trainer < ApplicationRecord
     validates :username, uniqueness: true
     validates :email, uniqueness: true
     validates :phone_number, numericality: { only_integer: true }
-    validates :username, :first_name, :last_name, :phone_number, :email, :certification, :password, presence: true
+    validates :username, :first_name, :last_name, :phone_number, :email, :certification, presence: true
+    validates :password, presence: true, on: :create
     validates :password, confirmation: { case_sensitive: true}
     
     def name

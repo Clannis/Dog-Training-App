@@ -4,9 +4,10 @@ class User < ApplicationRecord
     has_many :courses, through: :training_sessions
     has_secure_password
 
-    validates :username, uniqueness: true
+    validates :username, uniqueness: true, on: :create
     validates :email, uniqueness: true
-    validates :username, :first_name, :last_name, :phone_number, :email, :password, presence: true
+    validates :username, :first_name, :last_name, :phone_number, :email, presence: true
+    validates :password, presence: true, on: :create
     validates :phone_number, numericality: { only_integer: true }
     validates :password, confirmation: { case_sensitive: true}
 

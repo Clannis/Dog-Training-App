@@ -6,7 +6,6 @@ class SessionsController < ApplicationController
     end
     
     def create
-        byebug
         if params[:user]
             @user = User.find_by(username: params[:user][:username])
         elsif params[:trainer]
