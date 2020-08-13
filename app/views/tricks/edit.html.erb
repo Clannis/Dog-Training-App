@@ -1,8 +1,5 @@
 <h2><%= @trick.name%></h2>
 
 <%= form_with(model: @trick) do |f| %>
-  Name: <%= f.text_field :name %><br>
-  Description: <%= f.text_field :description %><br>
-  Difficulty Rating: <%= f.select :difficulty_rating, options_for_select((1..10), @trick.difficulty_rating) %> (1 - Easiest, 10 - Hardest)<br>
-  <%= f.submit %>
+  <%= render 'form' %>
 <% end %>

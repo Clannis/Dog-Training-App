@@ -1,0 +1,4 @@
+Name: <%= text_field_tag "[trick][name]" , @trick.name%><br>
+Description: <%= text_field_tag "[trick][description]", @trick.description %><br>
+Difficulty Rating: <%= select_tag "[trick][difficulty_rating]", options_for_select((1..10), @trick.difficulty_rating) %> (1 - Easiest, 10 - Hardest)<br>
+<%= submit_tag "Submit"%>
