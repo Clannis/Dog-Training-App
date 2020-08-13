@@ -12,7 +12,7 @@ Specs:
 - [x] Include signup (how e.g. Devise): user and trainer sign up with credentials
 - [x] Include login (how e.g. Devise): user and trainer login with credentials
 - [x] Include logout (how e.g. Devise): users and trainers logout with same link
-- [ ] Include third party signup/login (how e.g. Devise/OmniAuth)
+- [x] Include third party signup/login (how e.g. Devise/OmniAuth): github login
 - [x] Include nested resource show or index (URL e.g. users/2/recipes): course nests training sessions and tricks
 - [x] Include nested resource "new" form (URL e.g. recipes/1/ingredients/new): course nests new tricks and training session routes
 - [x] Include form display of validation errors (form URL e.g. /recipes/new): all forms re-render form with errors displayed
