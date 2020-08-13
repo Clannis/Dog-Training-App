@@ -1,9 +1,11 @@
 <h2><%= @course.name %></h2>
 
 <% if @course.errors.any? %>
+    <ul>
     <% @course.errors.full_messages.each do |error| %>
-        <%= error %>
+        <li><%= error %><br></li>
     <% end %>
+    </ul>
 <% end %>
 
 Duration: <%= @course.length%> weeks<br>
