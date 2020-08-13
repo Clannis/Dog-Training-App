@@ -5,6 +5,7 @@ class User < ApplicationRecord
     has_secure_password
 
     validates :username, uniqueness: true
+    validates :phone_number, numericality: { only_integer: true }
 
     def name
         self.first_name.downcase.capitalize + " " + self.last_name.downcase.capitalize
