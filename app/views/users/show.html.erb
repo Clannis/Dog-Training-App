@@ -9,10 +9,7 @@ Email: <%= @user.email %><br>
 
 <h3>You have <%= @user.dogs.count %> <%= @user.dogs.count == 1 ? "Dog" : "Dogs" %>.</h3>
 
-<% if @user.dogs.count == 0 %>
-    <%= link_to 'Add Your First Dog', new_user_dog_path(@user) %>
-<% else %>
-    <%= link_to "View Dogs", user_dogs_path(@user) %>
-<% end %>
+<%= dog_link(@user) %>
+    
 
 
