@@ -15,7 +15,7 @@ Specs:
 - [ ] Include third party signup/login (how e.g. Devise/OmniAuth)
 - [x] Include nested resource show or index (URL e.g. users/2/recipes): course nests training sessions and tricks
 - [x] Include nested resource "new" form (URL e.g. recipes/1/ingredients/new): course nests new tricks and training session routes
-- [ ] Include form display of validation errors (form URL e.g. /recipes/new)
+- [x] Include form display of validation errors (form URL e.g. /recipes/new): all forms re-render form with errors displayed
 
 Confirm:
 - [ ] The application is pretty DRY
