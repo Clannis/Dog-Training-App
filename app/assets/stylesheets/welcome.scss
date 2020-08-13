@@ -18,7 +18,7 @@
     padding: 20px;
 }
 
-.login-link{
+.login-links{
     text-align: center;
     padding: 10px;
     background-color: rgb(255, 255, 255);
@@ -46,4 +46,29 @@
     text-align: center;
     border-radius: 10px;
     padding: 20px;
+}
+
+.login{
+    padding: 10px;
+    background-color: rgb(86, 172, 206);
+    border-radius: 5px;
+    width: 200px;
+    display: block;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    text-align: center;
+}
+
+.signin-links{
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    padding: 10px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    padding-right: 40px;
+    padding-left: 40px;
 }

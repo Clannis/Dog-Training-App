@@ -10,21 +10,25 @@
 
 <h3 class="center-align">Login</h3>
 <div class="login-box">
-    <div class="login-link credential">
-        <%= link_to "Log In with Credentials", login_path %>
-    </div>
-    <div class="login-link Oauth ">
-        <%= link_to image_tag("/images/github-logo.png", border: 0, :class => "logo") + " Log In with GitHub", '/auth/github', class: "github" %>
-    </div>
-    <div class="login-link Oauth ">
-        <%= link_to image_tag("/images/facebook-logo.png", border: 0, :class => "logo") + " Log In with Facebook", 'auth/facebook', class: "facebook" %>
-    </div>
-    <div class="login-link Oauth">
-        <%= link_to image_tag("/images/google-logo.png", border: 0, :class => "logo") + " Log In with Google", 'auth/google', class: "google" %>
+    <div class="login-links">
+        <div class="login credential">
+            <%= link_to "Log In with Credentials", login_path %>
+        </div>
+        <div class="login Oauth ">
+            <%= link_to image_tag("/images/github-logo.png", border: 0, :class => "logo") + " Log In with GitHub", '/auth/github', class: "github" %>
+        </div>
+        <div class="login Oauth ">
+            <%= link_to image_tag("/images/facebook-logo.png", border: 0, :class => "logo") + " Log In with Facebook", 'auth/facebook', class: "facebook" %>
+        </div>
+        <div class="login Oauth">
+            <%= link_to image_tag("/images/google-logo.png", border: 0, :class => "logo") + " Log In with Google", 'auth/google', class: "google" %>
+        </div>
     </div>
 </div>
 <h3 class="center-align">Signup</h3>
 <div class="signin-box">
-    <%= link_to "Create New Owner", new_user_path %>
-    <%= link_to "Create New Trainer", new_trainer_path %>
+    <div class="signin-links">
+        <%= link_to "Create New Owner", new_user_path %>
+        <%= link_to "Create New Trainer", new_trainer_path %>
+    </div>
 </div>
