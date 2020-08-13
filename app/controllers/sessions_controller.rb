@@ -11,10 +11,10 @@ class SessionsController < ApplicationController
         elsif params[:trainer]
             @trainer = Trainer.find_by(username: params[:trainer][:username])
         end
-        if !@user.nil?
+        if @user
             session[:user_id] = @user.id
             redirect_to user_path(@user)
-        elsif !@trainer.nil?
+        elsif @trainer
             session[:trainer_id] = @trainer.id
             redirect_to trainer_path(@trainer)
         else
