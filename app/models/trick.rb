@@ -18,4 +18,12 @@ class Trick < ApplicationRecord
             result
         end
     end
+
+    def is_taught?
+        if self.courses.count > 0
+            true
+        else
+            false
+        end
+    end
 end
