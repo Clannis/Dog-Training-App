@@ -2,8 +2,10 @@
 
 <ol>
 <% @tricks.each do |trick| %>
-    <li><%= trick.name%> - <%= trick.description%> <%= link_to "Add to #{@course.name}", add_course_trick_path(@course, trick) %></li>
+    <li><%= link_to trick.name, trick_path(trick) %> <%= add_trick_to_course(course, trick) if @course %></li>
 <% end %>
 </ol>
 
-<%= link_to 'Create new Trick', new_course_trick_path(@course) %>
+<% if trainer_logged_in? && @course %>
+    <%= link_to 'Create new Trick', new_course_trick_path(@course) %>
+<% end %>
