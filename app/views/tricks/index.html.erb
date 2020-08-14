@@ -6,6 +6,6 @@
 <% end %>
 </ol>
 
-<% if trainer_logged_in? && @course %>
-    <%= link_to 'Create new Trick', new_course_trick_path(@course) %>
+<% if trainer_logged_in? %>
+    <%= link_to 'Create new Trick', @course ? new_course_trick_path(@course) : new_trick_path %>
 <% end %>

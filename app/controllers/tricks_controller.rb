@@ -2,7 +2,9 @@ class TricksController < ApplicationController
     before_action :authenticate
 
     def new
-        @course = Course.find(params[:course_id])
+        if params[:course_id]
+            @course = Course.find(params[:course_id])
+        end
         @trick = Trick.new()
     end
 
