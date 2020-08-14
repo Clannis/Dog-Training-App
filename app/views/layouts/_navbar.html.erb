@@ -1,5 +1,6 @@
-<%= link_to "Home", root_path%>
 <% if logged_in? %>
+    <%= link_to "Home", root_path%>
+    <%= link_to 'Dogs', user_dogs_path(current_user) unless trainer_logged_in? %>
     <%= link_to 'Trainers', trainers_path %>
     <%= link_to "Courses", courses_path %>
     <%= link_to "Tricks", tricks_path %>
