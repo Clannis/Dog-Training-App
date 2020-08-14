@@ -27,6 +27,7 @@ Rails.application.routes.draw do
   get '/courses/:course_id/tricks/:trick_id/add', to: 'courses#add_trick', as: :add_course_trick
   get '/training_sessions/:id/add_dog', to: 'training_sessions#select_dog', as: :training_session_add_dog
   post '/training_sessions/:id/add_dog', to: 'training_sessions#add_dog'
+  post '/tricks/:trick_id', to: 'tricks#add_to_course'
   root 'welcome#welcome'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
