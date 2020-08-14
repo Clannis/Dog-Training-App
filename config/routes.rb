@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :training_sessions, only: [:show, :edit, :update, :destroy]
   resources :courses, only: [:new, :create, :show, :index, :edit, :update] do
     resources :training_sessions, only: [:new, :create, :index]
-    resources :tricks, only: [:new, :create, :index]
+    resources :tricks, only: [:new, :create, :index, :show]
   end
   resources :dogs, only: [:edit, :show, :update] do
     resources :training_sessions, only: [:show]

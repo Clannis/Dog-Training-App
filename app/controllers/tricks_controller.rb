@@ -25,6 +25,9 @@ class TricksController < ApplicationController
     end
 
     def show
+        if params[:course_id]
+            @course = Course.find(params[:course_id])
+        end
         @trick = Trick.find(params[:id])
     end
 
