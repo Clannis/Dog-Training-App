@@ -37,6 +37,10 @@ class TrainersController < ApplicationController
             render 'edit'
         end
     end
+
+    def index
+        @trainers = Trainer.all
+    end
     private
 
     def trainer_params

@@ -1,0 +1,7 @@
+<h2>All Trainers</h2>
+
+<ul>
+    <% @trainers.each do |trainer| %>
+        <li><%= link_to trainer.name, trainer_path(trainer) %> - <%= trainer.courses.count %> courses offered.</li>
+    <% end %>
+</ul>
