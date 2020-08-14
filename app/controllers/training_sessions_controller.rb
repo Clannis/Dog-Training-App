@@ -72,19 +72,6 @@ class TrainingSessionsController < ApplicationController
         @training_sessions = @course.training_sessions
     end
 
-    def user_add_dog
-        @training_session = TrainingSession.find(params[:id])
-        @user = User.find(params[:user_id])
-        @dogs = Dog.owners_dogs(@user)
-    end
-
-    def add_dog_training_session
-        @dog = Dog.find(params[:dog_id])
-        @training_session= TrainingSession.find(params[:training_session_id])
-        @dog.training_sessions << @training_session
-        redirect_to user_dog_path(@dog.user, @dog)
-    end
-
     private
 
     def training_session_params

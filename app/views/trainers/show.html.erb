@@ -27,7 +27,7 @@ Certification: <%= @trainer.certification %><br>
     <h4>Courses Offered</h4>
     <ul>
     <% @trainer.courses.uniq.each do |course| %>
-        <li><%= link_to course.name, course_training_sessions_path(course) %></li>
+        <li><%= link_to course.name, course_path(course) %></li>
     <% end %>
     </ul>
 
