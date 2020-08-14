@@ -1,0 +1,6 @@
+<%= link_to "Home", root_path%>
+<% if logged_in? %>
+    <%= link_to 'Trainers', trainers_path %>
+    <%= link_to "Courses", courses_path %>
+    <%= link_to 'Logout', logout_path %>
+<% end %>
