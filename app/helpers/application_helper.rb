@@ -17,6 +17,22 @@ module ApplicationHelper
             end
         end
     end
+
+    def current_user
+        if session[:user_id]
+            User.find(session[:user_id])
+        elsif session[:trainer_id]
+            Trainer.find(session[:trainer_id])
+        end
+    end
+
+    def is_current_trainer?(trainer)
+        if current_user == trainer
+            true
+        else
+            false
+        end
+    end
     
     def logged_in?
         if session[:user_id]

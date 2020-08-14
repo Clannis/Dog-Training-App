@@ -17,4 +17,13 @@ class Course < ApplicationRecord
             end
         end
     end
+
+    def trainer(trainer)
+        self.training_sessions.each do |training_session|
+            if training_session.trainer == trainer
+                return true
+            end
+        end
+        false
+    end
 end

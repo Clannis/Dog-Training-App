@@ -14,7 +14,7 @@
 <% end %>
 
 <% if trainer_logged_in? %>
-    <%= link_to 'Edit this Training Session', edit_training_session_path(@training_session) %>
+    <%= link_to 'Edit this Training Session', edit_training_session_path(@training_session) if @training_session.is_current_trainers?(current_user)%>
 <% else %>
     <%= link_to "Enroll a dog", training_session_add_dog_path(@training_session) %>
 <% end %>

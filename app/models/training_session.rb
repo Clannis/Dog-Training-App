@@ -33,4 +33,12 @@ class TrainingSession < ApplicationRecord
             result
         end
     end
+
+    def is_current_trainers?(trainer)
+        if self.trainer == trainer
+            true
+        else
+            false
+        end
+    end
 end

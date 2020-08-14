@@ -2,7 +2,7 @@
 
 <ol>
 <% @tricks.each do |trick| %>
-    <li><%= link_to trick.name, trick_path(trick) %> <%= add_trick_to_course(course, trick) if @course %></li>
+    <li><%= link_to trick.name, trick_path(trick) %> - <%= add_trick_to_course(@course, trick) if @course %></li>
 <% end %>
 </ol>
 
