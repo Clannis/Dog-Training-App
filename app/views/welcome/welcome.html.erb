@@ -24,7 +24,11 @@
 <h2 class="center-align header">Signup</h2>
 <div class="signin-box">
     <div class="signin-links">
-        <%= link_to "Create New Owner", new_user_path, class: "signin" %>
-        <%= link_to "Create New Trainer", new_trainer_path, class: "signin" %>
+        <div class="create-link">
+            <%= link_to "Create New Owner", new_user_path, class: "signin" %>
+            </div>
+            <div class="create-link">
+            <%= link_to "Create New Trainer", new_trainer_path, class: "signin" %>
+        </div>
     </div>
 </div>
