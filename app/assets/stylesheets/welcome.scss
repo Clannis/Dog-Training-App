@@ -7,27 +7,56 @@
     justify-content: center;
 }
 
-// .login-box {
-//     width: 500px;
-//     display: block;
-//     margin-left: auto;
-//     margin-right: auto;
-//     justify-content: center;
-//     text-align: center;
-//     border-radius: 10px;
-//     border-style: solid;
-//     border-color:  rgb(0, 150, 209);
-//     border-width: 20px;
-// }
-
-.login-links {
-    text-align: center;
-    padding: 10px;
-    border-radius: 10px;
+.welcome {
+    
 }
 
-.Oauth {
-    text-align: center;
+div.welcome {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    background-color: rgb(45, 105, 184);
+    height: 5em;
+    margin: 0px;
+    align-items: center;
+}
+
+.dogs {
+    position: absolute;
+    width: 100%;
+    left: 0px;
+    top: 5em;
+}
+
+.dog-pic {
+    float: left;
+    display: block;
+    left: 0px;
+    width: 25%; 
+    height: 500px; 
+    margin: 0px;  
+}
+
+.session{
+    position: relative;
+    top: 600px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.column {
+    float: left;
+    left: 30px;
+    width: 40%;
+    height: 200px;
+    margin: 10px;
+    // border-color: rgb(45, 105, 184);
+    // border-style: solid;
+}
+
+.header {
     
 }
 
@@ -36,84 +65,11 @@
     height: 30px;
 }
 
-.signin-box {
-    width: 700px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    justify-content: center;
-    text-align: center;
-    // border-radius: 10px;
-    // border-style: solid;
-    // border-color:  rgb(0, 150, 209);
-    // border-width: 20px;
-}
-
-.login {
-    padding: 10px;
-    background-color: rgb(130, 251, 255);
-    border-radius: 5px;
-    width: 200px;
-    display: block;
-    margin-top: 1em;
-    margin-bottom: 1em;
-    margin-left: auto;
-    margin-right: auto;
-    justify-content: center;
-    text-align: center;
-}
-
-.signin-links {
-    display: flex;
-    justify-content: space-between;
-    text-align: center;
-    padding: 10px;
-    border-radius: 10px;
-    padding-right: 40px;
-    padding-left: 40px;
-}
-
-a:link {
-    padding: 5px;
-    color: rgb(190, 255, 146);
-    font-size: 20px;
-}
-
-a:visited {
-    color: rgb(119, 207, 60);
-}
-
-a:hover {
-    color: crimson;
-}
-
-.header {
-    color: rgb(130, 251, 255);
-    text-shadow: 4px 2px 7px red;
-}
-
-h2.header {
-    font-size: 35px;
-}
-
-h1 {
-    font-size: 50px;
-}
-
-.casper {
-    border-radius: 20px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 20%;
-    border-style: solid;
-    border-color: red;
-    border-width: 5px;
-    
-}
-
-.create-link {
-    background-color: rgb(109, 248, 253);
-    padding: 10px;
-    border-radius: 10px;
+.grass {
+    position: fixed -10;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   height: 25%;
+   text-align: center;
 }

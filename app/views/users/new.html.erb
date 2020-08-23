@@ -8,10 +8,12 @@
     </ul>
 <% end %>
 
-<%= form_tag new_user_path(@user) do %>
+<div class="form">
+<%= form_tag new_user_path(@user), id: "user-signup" do %>
     Username: <%= text_field_tag "[user][username]" %><br>
     <%= render 'form' %>
     Password: <%= password_field_tag "[user][password]" %><br>
     Password Confirmation: <%= password_field_tag "[user][password_confirmation]" %><br>
     <%= submit_tag "Create New Owner" %>
 <% end %>
+</div>
