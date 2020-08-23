@@ -9,8 +9,7 @@ class CoursesController < ApplicationController
         trainer = Trainer.find_by(id: session[:trainer_id])
         @course = Course.find_or_create_by(course_params)
         if @course.save
-            @course.trainers << trainer
-            redirect_to edit_training_session_path(@course.training_sessions.last)
+            redirect_to new_course_training_session_path(@course)
         else
             render 'new'
         end
