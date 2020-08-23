@@ -1,24 +1,35 @@
-# README
+# Dog Training App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Description
+---
+This web application is intended to be used by a dog training company to allow customers to create accounts and enroll their dogs into courses provided by the dog training company.
 
-Things you may want to cover:
+## Dependencies
+---
+Use bundle install to install all dependencies
 
-* Ruby version
+```
+bundle install
+```
 
-* System dependencies
+This application was produced using:
+* Ruby version 2.6.1
+* Rails version 6.0.3
+* Sqlite3 version 1.4
 
-* Configuration
+and encorporates omniauth-github for third-party log-in functionality.
 
-* Database creation
+## Testing
+---
+To test this application, please install all dependencies as instructed above and run `rails s` to launch the local server.
+Then navigate to http://localhost:3000 to load the app and begin exploration/testing of the application.
 
-* Database initialization
+## Contributing
+---
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-* How to run the test suite
+Please make sure to update tests as appropriate.
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## License
+---
+Available as open source under the terms of the [MIT License](https://github.com/Clannis/Dog-Training-App/blob/master/LICENSE).
