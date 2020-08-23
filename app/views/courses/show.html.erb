@@ -29,7 +29,7 @@ Cost: $<%= @course.cost %><br>
     <% if trainer_logged_in? %>
         <ol>
         <% @course.training_sessions.each do |training_session| %>
-            <li><%= link_to training_session.link_label, training_session_exists_path(training_session) %> <%= training_session.dogs.count %> enrolled <%= button_to "Delete Training Session", training_session, :method => :delete if @course.trainer(current_user) %></li>
+            <li><%= link_to training_session.link_label, training_session_exists_path(training_session) %> <%= training_session.dogs.count %> enrolled <%= button_to "Delete Training Session", training_session, :method => :delete if training_session.is_current_trainers?(current_user) %></li>
         <% end %>
         </ol>
         <%= link_to 'Create A New Training Session', new_course_training_session_path(@course) %>
