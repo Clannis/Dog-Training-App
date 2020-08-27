@@ -54,8 +54,7 @@ class TrainingSessionsController < ApplicationController
             redirect_to training_session_path(@training_session)
         else
             @dog.errors.add(:shots, "are not up to date. You cannot enroll #{@dog.name} in any courses.")
-            @user = current_user
-            @dogs = Dog.users_dogs_by_name(@user)
+            @dogs = Dog.users_dogs_by_name(current_user)
             render "select_dog"
         end
     end

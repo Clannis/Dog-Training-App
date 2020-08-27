@@ -20,7 +20,7 @@ class DogsController < ApplicationController
     end
 
     def index
-        @dogs = Dog.users_dogs_by_name(current_user.id)
+        @dogs = Dog.users_dogs_by_name(current_user)
     end
 
     def show
