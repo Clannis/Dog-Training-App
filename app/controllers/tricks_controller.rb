@@ -1,15 +1,13 @@
 class TricksController < ApplicationController
     before_action :authenticate
+    before_action :set_trick, only: [:show, :edit, :update]
+    before_action :set_course, only: [:new, :create, :index, :show]
 
     def new
-        if params[:course_id]
-            @course = Course.find(params[:course_id])
-        end
         @trick = Trick.new()
     end
 
     def create
-        @course = Course.find(params[:course_id])
         @trick = Trick.new(trick_params)
         @trick.courses << @course
         if @trick.save
@@ -20,27 +18,20 @@ class TricksController < ApplicationController
     end
 
     def index
-        if params[:course_id]
-            @course = Course.find(params[:course_id])
-        end
         @tricks = Trick.all
     end
 
     def show
-        if params[:course_id]
-            @course = Course.find(params[:course_id])
-        elsif trainer_logged_in?
+        if trainer_logged_in?
             @courses = current_user.courses.uniq
         end
-        @trick = Trick.find(params[:id])
     end
 
     def edit
-        @trick = Trick.find(params[:id])
+        
     end
 
     def update
-        @trick = Trick.find(params[:id])
         if @trick.update(trick_params)
             redirect_to trick_path(@trick)
         else
@@ -65,5 +56,15 @@ class TricksController < ApplicationController
 
     def trick_params
         params.require(:trick).permit(:name, :description, :difficulty_rating)
+    end
+
+    def set_trick
+        @trick = Trick.find(params[:id])
+    end
+
+    def set_course
+        if params[:course_id]
+            @course = Course.find(params[:course_id])
+        end
     end
 end
