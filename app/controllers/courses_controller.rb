@@ -1,5 +1,6 @@
 class CoursesController < ApplicationController
     before_action :authenticate
+    before_action :set_course, only: [:edit, :update]
 
     def new
         @course = Course.new()
@@ -30,11 +31,10 @@ class CoursesController < ApplicationController
     end
     
     def edit
-        @course = Course.find(params[:id])
+        
     end
 
     def update
-        @course = Course.find(params[:id])
         if @course.update(course_params)
             redirect_to course_path(@course)
         else
@@ -43,7 +43,7 @@ class CoursesController < ApplicationController
     end
 
     def add_trick
-        @course = Course.find(params[:course_id])
+        @course = Course.find_by(id: params[:course_id])
         @trick = Trick.find(params[:trick_id])
         if @course.tricks.include?(@trick)
             @course.errors.add(:trick, "already included in this course.")
@@ -59,5 +59,9 @@ class CoursesController < ApplicationController
 
     def course_params
         params.require(:course).permit(:name, :length, :cost)
+    end
+
+    def set_course
+        @course = Course.find_by(id: params[:id])
     end
 end
