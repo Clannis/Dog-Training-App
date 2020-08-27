@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
     before_action :authenticate
     before_action :page_owner_redirect
+    before_action :set_current_user
+    skip_before_action :set_current_user, only: [:new, :create]
     skip_before_action :authenticate, only: [:new, :create]
     skip_before_action :page_owner_redirect, only: [:new, :create]
 
@@ -20,15 +22,15 @@ class UsersController < ApplicationController
     end
 
     def show
-        @user = User.find_by(id: params[:id])
+        
     end
 
     def edit
-        @user = current_user
+        
     end
 
     def update
-        @user = current_user
+        
         format_phone_number_input
         if @user.update(update_user_params)
             redirect_to user_path(@user)
@@ -40,11 +42,10 @@ class UsersController < ApplicationController
     end
 
     def add_user_password
-        @user = current_user
+        
     end
 
     def update_user_password
-        @user = current_user
         if @user.update(password: params[:user][:password], password_confirmation: params[:user][:password_confirmation])
             byebug
             if @user.phone_number == "0"
