@@ -47,7 +47,6 @@ class UsersController < ApplicationController
 
     def update_user_password
         if @user.update(password: params[:user][:password], password_confirmation: params[:user][:password_confirmation])
-            byebug
             if @user.phone_number == "0"
                 redirect_to edit_user_path(@user)
             else
