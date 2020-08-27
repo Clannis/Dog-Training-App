@@ -27,4 +27,24 @@ class User < ApplicationRecord
             user.first
         end
     end
+
+    def self.find_or_create_user_by_github(resource)
+        result = {created: false}
+        user = self.find_user(resource['email'].downcase)
+        if !user
+            name = resource['name'].split(" ")
+            user = self.create(
+                first_name: name[0], 
+                last_name: (name[1] ? name[1] : "Add Last Name"), 
+                username: resource['nickname'],
+                phone_number: 0000000000,
+                email: resource['email'].downcase,
+                password: "add_password",
+                password_confirmation: "add_password"
+            )
+            result[:created] = true
+        end
+        result[:user] = user
+        result
+    end
 end

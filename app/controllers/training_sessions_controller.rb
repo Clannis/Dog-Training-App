@@ -35,9 +35,7 @@ class TrainingSessionsController < ApplicationController
 
     def create
         @course = Course.find(params[:course_id])
-        @training_session = TrainingSession.new(training_session_params)
-        @training_session.trainer = current_user
-        @training_session.course = @course
+        @training_session = current_user.training_sessions.new(training_session_params.merge({course_id: @course.id}))
         if @training_session.save
             redirect_to training_session_path(@training_session)
         else

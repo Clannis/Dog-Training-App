@@ -28,6 +28,8 @@ Rails.application.routes.draw do
   get '/training_sessions/:id/add_dog', to: 'training_sessions#select_dog', as: :training_session_add_dog
   post '/training_sessions/:id/add_dog', to: 'training_sessions#add_dog'
   post '/tricks/:trick_id', to: 'tricks#add_to_course'
+  get '/users/:id/add_password', to: 'users#add_user_password', as: :add_user_password
+  post '/users/:id/add_password', to: 'users#update_user_password'
   root 'welcome#welcome'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

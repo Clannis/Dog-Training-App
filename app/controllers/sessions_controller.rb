@@ -23,15 +23,16 @@ class SessionsController < ApplicationController
     end
 
     def github
-        email = request.env['omniauth.auth']['info']['email'].downcase
-        user = User.find_user(email)
-        trainer = Trainer.find_trainer(email)
-        if trainer
-            session[:trainer_id] = trainer.id
-            redirect_to trainer_path(trainer)
-        elsif user
-            session[:user_id] = user.id
-            redirect_to user_path(user)
+        result = User.find_or_create_user_by_github(request.env['omniauth.auth']['info'])
+        @created = result[:created]
+        @user = result[:user]
+        if @user
+            session[:user_id] = @user.id
+            if @created
+                redirect_to add_user_password_path(@user)
+            else
+                redirect_to user_path(@user)
+            end
         else
             @error = {User: "User not found with github."}
             render 'welcome/welcome'

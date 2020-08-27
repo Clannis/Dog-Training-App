@@ -8,7 +8,8 @@ class DogsController < ApplicationController
 
     def create
         @dog = Dog.new(dog_params)
-        @dog.user = User.find_by(id: session[:user_id])
+        @user = User.find_by(id: session[:user_id])
+        @dog.user = @user
         @dog.name = @dog.name.capitalize
         if @dog.save
             redirect_to user_dog_path(@dog.user, @dog)
@@ -61,4 +62,6 @@ class DogsController < ApplicationController
     def dog_params
         params.require(:dog).permit(:name, :breed, :age, :last_shot_date)
     end
+
+    
 end

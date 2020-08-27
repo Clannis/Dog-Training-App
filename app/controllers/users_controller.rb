@@ -39,6 +39,24 @@ class UsersController < ApplicationController
         end
     end
 
+    def add_user_password
+        @user = current_user
+    end
+
+    def update_user_password
+        @user = current_user
+        if @user.update(password: params[:user][:password], password_confirmation: params[:user][:password_confirmation])
+            byebug
+            if @user.phone_number == "0"
+                redirect_to edit_user_path(@user)
+            else
+                redirect_to user_path(@user)
+            end
+        else
+            render "add_user_password"
+        end
+    end
+
     private
 
     def user_params
