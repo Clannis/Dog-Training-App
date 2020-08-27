@@ -1,14 +1,16 @@
 class DogsController < ApplicationController
     before_action :authenticate
+    before_action :set_current_user
+    before_action :set_dog
+    skip_before_action :set_current_user, only: [:update, :edit]
+    skip_before_action :set_dog, only: [:new, :create, :index]
 
     def new
-        @user = current_user
         @dog = @user.dogs.build
     end
 
     def create
         @dog = Dog.new(dog_params)
-        @user = User.find_by(id: session[:user_id])
         @dog.user = @user
         @dog.name = @dog.name.capitalize
         if @dog.save
@@ -19,26 +21,18 @@ class DogsController < ApplicationController
     end
 
     def index
-        if params[:user_id]
-            @user = current_user
-            @dogs = Dog.users_dogs_by_name(current_user.id)
-        else
-            @dogs = Dog.all
-        end
+        @dogs = Dog.users_dogs_by_name(current_user.id)
     end
 
     def show
         Dog.update_shot_records
-        @user = User.find_by(id: session[:user_id])
-        @dog = Dog.find_by(id: params[:id])
     end
 
     def edit
-        @dog = Dog.find(params[:id])
+        
     end
 
     def update
-        @dog = Dog.find(params[:id])
         params[:dog][:name] = params[:dog][:name].capitalize
         if @dog.update(dog_params)
             redirect_to user_dog_path(@dog)
@@ -48,8 +42,6 @@ class DogsController < ApplicationController
     end
 
     def destroy
-        @user = User.find_by(id: session[:user_id])
-        @dog = Dog.find(params[:id])
         @dog.training_session_dogs.each do |training_session_dog|
             training_session_dog.delete
         end
@@ -63,5 +55,12 @@ class DogsController < ApplicationController
         params.require(:dog).permit(:name, :breed, :age, :last_shot_date)
     end
 
+    def set_current_user
+        @user = current_user
+    end
+
+    def set_dog
+        @dog = Dog.find(params[:id])
+    end
     
 end
