@@ -1,6 +1,7 @@
 class TrainingSessionsController < ApplicationController
     before_action :authenticate
     before_action :set_training_session
+    before_action :set_course, only: [:new, :create, :index]
     skip_before_action :set_training_session, only: [:new, :create, :index]
 
     def show
@@ -12,7 +13,6 @@ class TrainingSessionsController < ApplicationController
     end
 
     def update
-       
         if @training_session.update(training_session_params)
             redirect_to training_session_path(@training_session)
         else
@@ -21,7 +21,6 @@ class TrainingSessionsController < ApplicationController
     end
 
     def destroy
-        
         @training_session.training_session_dogs.each do |training_session_dog|
             training_session_dog.delete
         end
@@ -31,12 +30,10 @@ class TrainingSessionsController < ApplicationController
     end
 
     def new
-        @course = Course.find(params[:course_id])
         @training_session = TrainingSession.new()
     end
 
     def create
-        @course = Course.find(params[:course_id])
         @training_session = current_user.training_sessions.new(training_session_params.merge({course_id: @course.id}))
         if @training_session.save
             redirect_to training_session_path(@training_session)
@@ -61,12 +58,10 @@ class TrainingSessionsController < ApplicationController
             @dogs = Dog.users_dogs_by_name(@user)
             render "select_dog"
         end
-        
     end
 
     def index
         @user = current_user
-        @course = Course.find(params[:course_id])
         @training_sessions = @course.training_sessions
     end
 
@@ -78,5 +73,9 @@ class TrainingSessionsController < ApplicationController
 
     def set_training_session
         @training_session = TrainingSession.find_by(id: params[:id])
+    end
+
+    def set_course
+        @course = Course.find(params[:course_id])
     end
 end
