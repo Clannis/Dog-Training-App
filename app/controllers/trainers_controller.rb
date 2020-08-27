@@ -1,6 +1,7 @@
 class TrainersController < ApplicationController
     include TrainersHelper
     before_action :authenticate
+    before_action :set_trainer, only: [:show, :edit, :update]
     skip_before_action :authenticate, only: [:new, :create]
 
     def new
@@ -19,15 +20,14 @@ class TrainersController < ApplicationController
     end
 
     def show
-        @trainer = Trainer.find_by(id: params[:id])
+        
     end
 
     def edit
-        @trainer = Trainer.find_by(id: params[:id])
+        
     end
 
     def update
-        @trainer = Trainer.find_by(id: params[:id])
         format_phone_number_input
         if @trainer.update(update_trainer_params)
             redirect_to trainer_path(@trainer)
@@ -51,4 +51,7 @@ class TrainersController < ApplicationController
         params.require(:trainer).permit(:username, :first_name, :last_name, :phone_number, :email, :certification)
     end
 
+    def set_trainer
+        @trainer = Trainer.find_by(id: params[:id])
+    end
 end
