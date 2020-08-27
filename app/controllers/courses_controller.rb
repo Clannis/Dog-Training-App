@@ -1,6 +1,7 @@
 class CoursesController < ApplicationController
     before_action :authenticate
-    before_action :set_course, only: [:edit, :update]
+    before_action :set_course, only: [:edit, :update, :show]
+    before_action :set_dog, only: [:show, :index]
 
     def new
         @course = Course.new()
@@ -17,16 +18,10 @@ class CoursesController < ApplicationController
     end
 
     def show
-        if params[:dog_id]
-            @dog = Dog.find(params[:dog_id])
-        end
-        @course = Course.find_by(id: params[:id])
+        
     end
 
     def index
-        if params[:dog_id]
-            @dog = Dog.find(params[:dog_id])
-        end
         @courses = Course.all
     end
     
@@ -63,5 +58,11 @@ class CoursesController < ApplicationController
 
     def set_course
         @course = Course.find_by(id: params[:id])
+    end
+
+    def set_dog
+        if params[:dog_id]
+            @dog = Dog.find(params[:dog_id])
+        end
     end
 end
