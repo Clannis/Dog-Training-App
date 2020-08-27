@@ -10,8 +10,7 @@ class DogsController < ApplicationController
     end
 
     def create
-        @dog = Dog.new(dog_params)
-        @dog.user = @user
+        @dog = @user.dogs.new(dog_params)
         @dog.name = @dog.name.capitalize
         if @dog.save
             redirect_to user_dog_path(@dog.user, @dog)
@@ -29,7 +28,7 @@ class DogsController < ApplicationController
     end
 
     def edit
-        
+
     end
 
     def update
