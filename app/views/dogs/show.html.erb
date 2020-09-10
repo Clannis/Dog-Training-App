@@ -2,7 +2,7 @@
   <h2><%= @dog.name %></h2>
 
   <% if @dog.avatar.attached? %>
-    <%=image_tag @dog.avatar.variant(resize_to_limit: [100, 100]), class: "dog-image" %><br>
+    <%=image_tag @dog.avatar.variant(resize_to_limit: [200, 200]), class: "dog-image" %><br>
   <% end %>
 
   Breed: <%= @dog.breed.capitalize %><br>
