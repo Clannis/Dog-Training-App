@@ -9,6 +9,8 @@
 <% end %>
 
 <%= form_with(model: @trainer) do |f| %>
+    <%= f.label :Picture %>
+    <%= f.file_field :avatar , accept: "image/jpeg,image/png"%><br>
     Username: <%= f.text_field :username %><br>
     <%= render 'form' %>
     Password: <%= f.password_field :password %><br>

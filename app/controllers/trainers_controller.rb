@@ -29,6 +29,9 @@ class TrainersController < ApplicationController
 
     def update
         format_phone_number_input
+        if params[:avatar]
+            @trainer.avatar.purge 
+        end
         if @trainer.update(update_trainer_params)
             redirect_to trainer_path(@trainer)
         else
@@ -44,11 +47,11 @@ class TrainersController < ApplicationController
     private
 
     def trainer_params
-        params.require(:trainer).permit(:username, :first_name, :last_name, :phone_number, :email, :certification, :password, :password_confirmation)
+        params.require(:trainer).permit(:username, :first_name, :last_name, :phone_number, :email, :certification, :password, :password_confirmation, :avatar)
     end
 
     def update_trainer_params
-        params.require(:trainer).permit(:username, :first_name, :last_name, :phone_number, :email, :certification)
+        params.require(:trainer).permit(:username, :first_name, :last_name, :phone_number, :email, :certification, :avatar)
     end
 
     def set_trainer

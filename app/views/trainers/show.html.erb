@@ -1,5 +1,9 @@
 <h2> Welcome <%= @trainer.username %>!</h2>
 
+<% if @trainer.avatar.attached? %>
+  <%=image_tag @trainer.avatar.variant(resize_to_limit: [200, 200]) %><br>
+<% end %>
+
 Name: <%= @trainer.name %><br>
 Phone Number: <%= @trainer.display_phone_number %><br>
 Email: <%= @trainer.email %><br>

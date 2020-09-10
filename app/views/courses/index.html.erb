@@ -1,4 +1,4 @@
-<h2>Courses available at [Dog Training Company Name]</h2>
+<h2>Courses available</h2>
 <ul>
 <% @courses.each do |course| %>
     <li><%= link_to course.name, params[:dog_id] ? dog_course_path(@dog, course) : course_path(course) %> - <%= course.training_sessions.count %> available <%= course.training_sessions.count == 1 ? "class" : "classes" %>.</li>

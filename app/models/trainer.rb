@@ -1,4 +1,5 @@
 class Trainer < ApplicationRecord
+    has_one_attached :avatar
     has_many :training_sessions
     has_many :courses, through: :training_sessions
     has_many :dogs, through: :training_sessions
