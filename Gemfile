@@ -56,4 +56,5 @@ gem "omniauth", "~> 1.9"
 
 gem "omniauth-github", "~> 1.4"
 
+gem 'image_processing', '~> 1.2'
 

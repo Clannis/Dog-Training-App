@@ -8,7 +8,13 @@
     </ul>
 <% end %>
 
+<% if @dog.avatar.attached? %>
+  <%=image_tag @dog.avatar.variant(resize_to_limit: [150, 150]) %><br>
+<% end %>
+
 <%= form_for @dog do |f| %>
+    <%= f.label :Picture %>
+    <%= f.file_field :avatar, accept: "image/jpeg,image/png"%><br>
     <%= render 'form' %>
     <%= submit_tag "Update Dog" %>
 <% end %>

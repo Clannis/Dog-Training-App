@@ -33,6 +33,9 @@ class DogsController < ApplicationController
 
     def update
         params[:dog][:name] = params[:dog][:name].capitalize
+        if params[:avatar]
+            @dog.avatar.purge 
+        end
         if @dog.update(dog_params)
             redirect_to user_dog_path(@dog)
         else
@@ -51,7 +54,7 @@ class DogsController < ApplicationController
     private
 
     def dog_params
-        params.require(:dog).permit(:name, :breed, :age, :last_shot_date)
+        params.require(:dog).permit(:name, :breed, :age, :last_shot_date, :avatar)
     end
 
     def set_dog

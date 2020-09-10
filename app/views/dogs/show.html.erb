@@ -1,5 +1,9 @@
 <h2><%= @dog.name %></h2>
 
+<% if @dog.avatar.attached? %>
+  <%=image_tag @dog.avatar.variant(resize_to_limit: [150, 150]) %><br>
+<% end %>
+
 Breed: <%= @dog.breed.capitalize %><br>
 Age: <%= @dog.age %> years old<br>
 Up to date on Shots: <%= @dog.shots ? "Yes" : "No" %><br>

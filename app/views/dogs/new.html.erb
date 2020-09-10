@@ -3,12 +3,14 @@
 <% if @dog.errors.any? %>
     <ul>
     <% @dog.errors.full_messages.each do |error| %>
-        <li><%= error %><br></li>
+        <li><%= error %></li>
     <% end %>
     </ul>
 <% end %>
 
 <%= form_with(model: [@user, @dog]) do |f| %>
+    <%= f.label :Picture %>
+    <%= f.file_field :avatar , accept: "image/jpeg,image/png"%><br>
     <%= render 'form' %>
     <%= submit_tag "Add Dog" %>
 <% end %>
