@@ -1,9 +1,0 @@
-<h2>Training Sessions open for <%= @course.name %></h2>
-
-<ul>
-<% @training_sessions.each do |training_session| %>
-
-    <li><%= training_session.link_label %>; <%= link_to "Add a Dog to this Training Session", add_user_training_session_path(@user, training_session) %></li>
-
-<% end %>
-</ul>

@@ -1,3 +1,0 @@
-module TrainersHelper
-    
-end

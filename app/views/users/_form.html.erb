@@ -1,4 +1,0 @@
-First Name: <%= text_field_tag "[user][first_name]", @user.first_name %><br>
-Last Name: <%= text_field_tag "[user][last_name]", @user.last_name %><br>
-Phone Number: <%= text_field_tag "[user][phone_number_1]", (@user.phone_number ? @user.phone_number[0..2] : nil), maxlength: 3, size: 3 %> - <%= text_field_tag "[user][phone_number_2]", (@user.phone_number ? @user.phone_number[3..5] : nil), maxlength: 3, size: 3 %> - <%= text_field_tag "[user][phone_number_3]", (@user.phone_number ? @user.phone_number[6..9] : nil), maxlength: 4, size: 4 %><br>
-Email: <%= text_field_tag "[user][email]", @user.email %><br>
